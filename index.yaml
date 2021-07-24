@@ -1,0 +1,25 @@
+apiVersion: v1
+entries:
+  trivy-image-validator:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2021-07-24T10:17:29.484168+02:00"
+    description: A Helm chart for Kubernetes
+    digest: d61b744b11f43e73a0cb99b403c4588dbdf71458726a1d7e57ff0f694cb2c243
+    name: trivy-image-validator
+    type: application
+    urls:
+    - https://github.com/devopstales/helm-charts/releases/download/trivy-image-validator-0.1.0/trivy-image-validator-0.1.0.tgz
+    version: 0.1.0
+  trivy-scanner:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2021-07-24T10:17:29.654031+02:00"
+    description: A Helm chart for Kubernetes
+    digest: 033098d0099cd6ea3162fefd5a06eff28f2f0f9134ed9d0e6babbb7aa8003bdf
+    name: trivy-scanner
+    type: application
+    urls:
+    - https://github.com/devopstales/helm-charts/releases/download/trivy-scanner-0.1.0/trivy-scanner-0.1.0.tgz
+    version: 0.1.0
+generated: "2021-07-24T10:17:29.654049+02:00"
