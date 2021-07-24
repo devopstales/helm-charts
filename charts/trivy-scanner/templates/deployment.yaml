@@ -1,61 +1,61 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "trivy-scanner.fullname" . }}
   labels:
+    app: trivy-scanner
     {{- include "trivy-scanner.labels" . | nindent 4 }}
+  name: {{ include "trivy-scanner.fullname" . }}-trivy-scanner
 spec:
-  {{- if not .Values.autoscaling.enabled }}
-  replicas: {{ .Values.replicaCount }}
-  {{- end }}
+  replicas: 1
   selector:
     matchLabels:
+      app: trivy-scanner
       {{- include "trivy-scanner.selectorLabels" . | nindent 6 }}
   template:
     metadata:
-      {{- with .Values.podAnnotations }}
-      annotations:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
       labels:
+        app: trivy-scanner
         {{- include "trivy-scanner.selectorLabels" . | nindent 8 }}
+      annotations:
+        prometheus.io/port: "9115"
+        prometheus.io/scrape: "true"
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      serviceAccountName: {{ include "trivy-scanner.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      serviceAccountName: {{ include "trivy-scanner.serviceAccountName" . }}-trivy-scanner
       containers:
-        - name: {{ .Chart.Name }}
-          securityContext:
-            {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
-          ports:
-            - name: http
-              containerPort: 80
-              protocol: TCP
-          livenessProbe:
-            httpGet:
-              path: /
-              port: http
-          readinessProbe:
-            httpGet:
-              path: /
-              port: http
-          resources:
-            {{- toYaml .Values.resources | nindent 12 }}
-      {{- with .Values.nodeSelector }}
-      nodeSelector:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
-      {{- with .Values.affinity }}
-      affinity:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
-      {{- with .Values.tolerations }}
-      tolerations:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
+      - name: {{ .Chart.Name }}
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+{{- if .Values.githubToken.enabled -}}
+        env:
+        - name: GITHUB_TOKEN
+          value: "{{ .Values.githubToken.token }}"
+{{- end }}
+        volumeMounts:
+        - name: operator-config
+          mountPath: /etc/trivy-scanner/
+        - name: cache
+          mountPath: "/home/kube-trivy-exporter/trivy-cache"
+{{- if .Values.privateRegistry.enabled -}}
+        - name: config-json
+          mountPath: "/home/kube-trivy-exporter/.docker"
+{{- end }}
+        ports:
+          - containerPort: 9115
+      volumes:
+      - configMap:
+          name: {{ include "trivy-scanner.fullname" . }}-trivy-scanner-config
+        name: operator-config
+      - name: cache
+        persistentVolumeClaim:
+            claimName: {{ include "trivy-scanner.fullname" . }}-trivy-cache
+{{- if .Values.privateRegistry.enabled -}}
+      - name: config-json
+        secret:
+          secretName: {{ .Values.privateRegistry.secretNmae }}
+{{- end }}
