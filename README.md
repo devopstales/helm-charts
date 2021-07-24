@@ -25,6 +25,9 @@ Chart documentation is available in [charts directory](https://github.com/devops
 
 ## Contributing
 
+<!-- Keep full URL links to repo files because this README syncs from main to gh-pages.  -->
+We'd love to have you contribute! Please refer to our [contribution guidelines](https://github.com/devopstales/helm-charts/blob/main/CONTRIBUTING.md) for details.
+
 ## License
 
 <!-- Keep full URL links to repo files because this README syncs from main to gh-pages.  -->
