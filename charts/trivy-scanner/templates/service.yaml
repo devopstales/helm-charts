@@ -1,15 +1,16 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "trivy-scanner.fullname" . }}
+  name: {{ include "trivy-scanner.fullname" . }}-trivy-scanner
   labels:
+    app: trivy-scanner
     {{- include "trivy-scanner.labels" . | nindent 4 }}
 spec:
-  type: {{ .Values.service.type }}
   ports:
-    - port: {{ .Values.service.port }}
-      targetPort: http
-      protocol: TCP
-      name: http
+    - name: metrics
+      targetPort: TCP
+      port: {{ .Values.monitoring.port }}
+      targetPort: 9115
   selector:
+    app: trivy-scanner
     {{- include "trivy-scanner.selectorLabels" . | nindent 4 }}
