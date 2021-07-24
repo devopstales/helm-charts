@@ -4,8 +4,8 @@
 
 This repository contains [Helm](https://helm.sh) charts for various projects
 
-* [Trivy Image Validator Admission Controller](charts/trivy-image-validator/)
-* [Trivy Scanner Operator](charts/trivy-scanner/)
+* [Trivy Image Validator Admission Controller](tree/main/charts/trivy-image-validator/)
+* [Trivy Scanner Operator](tree/main/charts/trivy-scanner/)
 
 ## Usage
 
