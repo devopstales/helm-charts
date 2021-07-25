@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: trivy-scanner
-  namespace: validation
+  name: {{ template "trivy-image-validator.serviceName" . }}
+  namespace: {{ template "trivy-image-validator.namespace" . }}
 spec:
   selector:
-    app: trivy-scanner
+    app: trivy-validation
     {{- include "trivy-image-validator.labels" . | nindent 4 }}
   ports:
   - port: 443

@@ -5,7 +5,7 @@ metadata:
   labels:
     app: trivy-validation
     {{- include "trivy-image-validator.labels" . | nindent 4 }}
-  namespace: validation
+  namespace: {{ template "trivy-image-validator.namespace" . }}
 spec:
   replicas: 1
   selector:
@@ -35,6 +35,16 @@ spec:
           - name: config-json
             mountPath: "/home/kube-trivy-admission/.docker"
 {{- end }}
+{{- if .Values.createSelfSignedCert }}
+          - name: tiv-tls-pair
+            mountPath: "/app/tls.key"
+            subPath: "tls.key"
+            readOnly: true
+          - name: tiv-tls-pair
+            mountPath: "/app/tls.crt"
+            subPath: "tls.crt"
+            readOnly: true
+{{- end }}
       volumes:
       - name: cache
         persistentVolumeClaim:
@@ -43,4 +53,9 @@ spec:
       - name: config-json
         secret:
           secretName: {{ .Values.privateRegistry.secretName }}
+{{- end }}
+{{- if .Values.createSelfSignedCert }}
+      - name: tiv-tls-pair
+        secret:
+          secretName: {{ template "trivy-image-validator.serviceName" . }}.{{ template "trivy-image-validator.namespace" . }}.svc.tiv-tls-pair
 {{- end }}

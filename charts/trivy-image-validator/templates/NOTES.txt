@@ -1,0 +1,23 @@
+Thank you for installing {{ .Chart.Name }}.
+
+Your release is named {{ .Release.Name }}.
+
+To learn more about the release, try:
+
+  $ helm status {{ .Release.Name }}
+  $ helm get all {{ .Release.Name }}
+
+To activate the Admission Controller you need to label the namespace:
+
+  $ kubectl label namespace default trivy-image-validator=enabled
+
+If you deployd {{ .Chart.Name }} with createSelfSignedCert: true test the ValidatingWebhookConfiguration:
+
+  $ kubectl get ValidatingWebhookConfiguration trivy-image-validating-webhook-cfg -o yaml | grep caBundle
+
+WARNING:
+The trivy-image-validating-webhook-cfg ValidatingWebhookConfiguration object not tracked or managed as part of the release!!!
+Once Tiller verifies that the hook has reached its ready state, it will leave the hook resource alone.
+This means that you cannot rely upon helm delete to remove the resources. To destroy such resources, you need to destroy manually:
+
+  $ kubectl delete ValidatingWebhookConfiguration trivy-image-validating-webhook-cfg
