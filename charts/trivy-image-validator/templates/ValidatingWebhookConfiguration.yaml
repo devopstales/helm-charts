@@ -1,19 +1,20 @@
+{{- if .Values.createSelfSignedCert }}
 apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingWebhookConfiguration
 metadata:
-  name: {{ include "trivy-image-validator.fullname" . }}-trivy-scanner
+  name: trivy-image-validating-webhook-cfg
   annotations:
     "helm.sh/hook": post-install,post-upgrade,post-delete
+    cert-manager.io/inject-ca-from-secret: {{ template "trivy-image-validator.namespace" . }}/{{ template "trivy-image-validator.serviceName" . }}.{{ template "trivy-image-validator.namespace" . }}.svc.tiv-tls-ca
 webhooks:
-  - name: trivy-scanner.devopstales.intra
+  - name: trivy-image-validator.devopstales.intra
     sideEffects: "None"
     admissionReviewVersions: [v1beta1, v1]
     clientConfig:
       service:
-        name: trivy-scanner
-        namespace: validation
+        name: {{ template "trivy-image-validator.serviceName" . }}
+        namespace: {{ template "trivy-image-validator.namespace" . }}
         path: "/validate"
-      caBundle: "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUV6RENDQXJRQ0NRQ3JlR0l2WU9zS2RqQU5CZ2txaGtpRzl3MEJBUXNGQURBbk1TVXdJd1lEVlFRRERCeEIKWkcxcGMzTnBiMjRnUTI5dWRISnZiR3hsY2lCWFpXSm9iMjlyTUNBWERUSXhNRGN5TkRFNU1qRXpNRm9ZRHpJeApNakV3TmpNd01Ua3lNVE13V2pBbk1TVXdJd1lEVlFRRERCeEJaRzFwYzNOcGIyNGdRMjl1ZEhKdmJHeGxjaUJYClpXSm9iMjlyTUlJQ0lqQU5CZ2txaGtpRzl3MEJBUUVGQUFPQ0FnOEFNSUlDQ2dLQ0FnRUF5ZDZ3OXpaMjNHMk4KMk5Fdml2cjdxTVZXMllQcGdTZHJFbGJkMmtXRk5lbEFwL1ZFM3hVRG5FUXZ1bm5UMEJ4bUw0ckRmSzNBYmtvcQpXbzN0UjlUaDJFbzRnMTVQMC82NFhYak90MHJFbkp6RERIS2hkQzUraFVIUitkaEJuN3VhY1NYQzVqcEFyTDlXCi94Vy9nT0VRM05vTWUranZxWUYyT2MyeFZYd1czTEZDTmpLbEFOZFdIeC82QTI0QlYxZis3OXd0Y0oyZzhYR0EKWVR4cEJoZExsKzFYTGxhS2MraSs2NDh2LzBwYXdFVFoxSGVDeHVwVnFSZzV0dWVVWVRuTitXVWdIVzFVK0lBawpNVnV4Q3NpdXlRY3ZiVnljWjJaL2ZnSCtPVjZzTXd6VlErYVpKc0p1NVFTZHlVcHNIcXdjdW5ENzdCb1NUOVd1ClplZFBKQW5FS2VrVWowSlJhOXZuamRtTWxmSnpMMlFjWnB2Vll3RDlSODNRQkJNcks4QlVoMVFNOTRtMmlqYisKWDFmVjdTWEljdEdZQzJNTENINHkyQmFTOCtOdWhPS1dYdkN4V0Zaa2E2MEY1bTdnMEVLS2FSbkFVTGhPUDZpRAozVU4xV3M5Um1SSjVEdjN3WDNLaXJ5WlpCZ3cxeTlsU3hCNmsvM2FybmJwVW5paWptVVBvTUpqTms0Yy9oUXg1CkNIUFZPWHpvRlVjMmVyUm0rMzFZZ3dHaUhLd3FzeVlTOGNlQVI4VnpJSmppN1R3NWVERjBHQ1VOUVp6d0h0cEkKVU4wTnpZQnRLVk5NSXVHSmRZQVl3a3ZWakIxSkptY2JFOENCWERSWUkyTFVPYWUvRk43VDVaVW92RWw5QWUrZAp4NHRNd0ZVTEtRT1VEcnhXelFjcVgxanRNbVhsc1RVQ0F3RUFBVEFOQmdrcWhraUc5dzBCQVFzRkFBT0NBZ0VBCm5SRWRRdXoxSzF6eTRFbjQ4VXVnMFpubjhSM3hhYUNJWEpmaXRqZGxYbGFtTFNINXBVWWVpTXg5NWRIbklFdWUKNlRFZjQ4Q01GdmNPODJHeVQ5TGt3eVJwMmFyaGlzeUpSekVtaE9ZSmVUK3dYVWlVZ29hK2drUmFkM0EzMy9DVQpoTCt6bjVCOFF5N3dZWWY2QXpnV004N28vVkdGV3hmL1FjZmt0WUhYMTZCWExFK1E0MTJZd2lRQUE1VGs3dGt5Cm1vQS9vY0dDSFEvaE56K01qNWs4SlYrYTFTRVNXbmlFeGk2K01yaFFuZmhlWXJwNHJhUXJoWktVdmZ3NDE3Yk4KK1lucjFqWFY4ODZlK3ZxQzZucmxaK1UzTkU4OWpWN3Mycm9mVDNDdk8xNWk5R0Q2V0lUMEtuODQ0dThVc0EvLwppa2tsZkY4bUFxT0pVMkhuN2JlaUNuMlNPQWxITGEwcUVlKy9URzE1ckNTNlA5KzZka3VvSXE3K0RuQUFDck1SCnBLOEVMbzlDTENZT3lWRVFGR0o3TlcvdXlTNXVsMUMxNGRLeDdVTWdMaktaYVdLc3B3WmdYQmN5cUJqT1luc2kKOGlCblRkYnQ0RjlmKzZhN0FrOE93cXExZzN1cHlJMzdqTzN0Um1HQ2NBMWRtQUlIeWNRYjVBYll2UUtkRUdSSApub2pJS3A3bGxqQnUzWWRVN0JvQUZWL3hMUytzVkkwL0pUVmF4R3JrZHBtUlpJc2p2WGNkUWxPamszVEs2d05hCmRpMGlxUTFkZWhQNFk3bE9yME5zZm1QNkIxS2xxUzZ3U2wycU9ZbmhzcSttN2NGNlNCRmo4ZEpDNUxQSmlzOXAKWUdvb1h4M1EyeGpHVy9CQkM5WkFzUHlROGNpQlVKUFI2OTJYYjUzMlRLcz0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo="
     rules:
       - apiGroups: ["apps", ""]
         resources:
@@ -25,3 +26,32 @@ webhooks:
     namespaceSelector:
       matchLabels:
         trivy-image-validator: enabled
+{{- else -}}
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingWebhookConfiguration
+metadata:
+  name: trivy-image-validating-webhook-cfg
+  annotations:
+    "helm.sh/hook": post-install,post-upgrade,post-delete
+webhooks:
+  - name: trivy-image-validator.devopstales.intra
+    sideEffects: "None"
+    admissionReviewVersions: [v1beta1, v1]
+    clientConfig:
+      service:
+        name: {{ template "trivy-image-validator.serviceName" . }}
+        namespace: {{ template "trivy-image-validator.namespace" . }}
+        path: "/validate"
+      caBundle: "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUV6RENDQXJRQ0NRQ2w3a3Z2eFRQK3ZEQU5CZ2txaGtpRzl3MEJBUXNGQURBbk1TVXdJd1lEVlFRRERCeEIKWkcxcGMzTnBiMjRnUTI5dWRISnZiR3hsY2lCWFpXSm9iMjlyTUNBWERUSXhNRGN5TlRBNE16ZzBPRm9ZRHpJeApNakV3TnpBeE1EZ3pPRFE0V2pBbk1TVXdJd1lEVlFRRERCeEJaRzFwYzNOcGIyNGdRMjl1ZEhKdmJHeGxjaUJYClpXSm9iMjlyTUlJQ0lqQU5CZ2txaGtpRzl3MEJBUUVGQUFPQ0FnOEFNSUlDQ2dLQ0FnRUFwc2dlQmF4cU1LZ3UKTWR2ZC9vVGczYUlCbk50QjZQczFwZWJxYTA3dFZDaFUrb2o5dkN5OXR6WW5FRmRZRm9uNjVjZndMc2Rvd0pzMAo2U0VkT21EbCsvbXN0WGtsdmxPS0R1RytrdHFjOWREMjJEeGxsM2pHMS80aG5ta0RwN0VuakIzZFg5Qk1mSW03CnJlVFZDTUdMeWJNdkpKaDBzVmdjVDJkcnVCZVlrUHF5UmpEZ3djcGc3amV3bzR2Z2VqdGJBV2M0eGZqWCsrMzEKeVN1ZFRUUmF3NDArUlJSZzg1RGgrTi8rS2tIRy9SalpDdUp2N3p0ZXBYeVkrQkkyTzNxWXlHdmJ4VjNiK3ZzLwpXMVFlWTUyTGlzVjVEK3duVUlrOGlwaXlzNkVlOGh2UnpBejhEbEljVjUwY0dtYXh6SHFwOTZzUm5ESkk4MnRUCjdyY0lqbEhEZU95bWxoRTRGa1Q2WVFnM1lIaHpVTmlQRGY5bm5rRm5UbU5qeFo2VVhma3lDNDltSHQrMXc5RXIKRUd2MnVFL1NPMXN5Qk5YMDFlSnd0SEs5YzZseU5IaFpwdGF6M01xeStSSW5reUMwVGRjS2U1V3dTRkxRN01HNgpmWDgzTFJRcHhudTA3eFJTUE9lTkoyL0hVNkJiazFybGN6d2tMdkNJMWlMMXpTNElKV0pRQXoxSGsvcTRRUThHClIxbnVrVENUWlUzYVJrV3N5NFhzTmN3am5tdG9JVmsrekphRXBBQUVLdUtKc0xFMjB5YW1mSUs5Q2gwKzh6TXoKemhTZG00UFlONFd0TUhoWjk0b3VuUFNVbDVsSnhTQmtJUUpBQW1yamJCdDJGR0x2VlIxcUVuSmFWcDBldDEyQwpJOEJQekpaVDlmZ09vY3h6eVladnF5cEdHZDNRUHMwQ0F3RUFBVEFOQmdrcWhraUc5dzBCQVFzRkFBT0NBZ0VBCmpsR3BGVENwNW5RcHJqRXQySmpMbmo2UldaaHg1OXdMeVloZHkzem9rMytpb0xyUm01Ry9sckR3U3ZXZVJGZHMKYis5bTNiVlZZMGxxZXNTS2V6eDFkQW9KS3Z3NEZFVWJpU0hwNnY5S2N6SDJZMlIvYVR2U0ZFK3d1VTBiVnV2OApWRVhRc2czemh2RUZLY1hTcUFyUGhLdFhheUNMY1FxZDc5dHM3dFhoMWYwcERCVnZESVRxU1lkazZzTlYzZ1haCnZMYUdzK0ZjU1Q4NlptUGZsSzJRQ1l6cmpTY1BTdkdUUWYzWmpxUzM1dnEvcm4wTDJOWVdpMGtsNFQwVDJXVEcKcThTQk9hRE55MWFQbjhIbVQ0YXc4c2VhYjg2dVRIQVh5WlVEcUlXakw1VFNXcFdvM1JsVkJzWVBybnV6UkdrNQp1YzFJWE9Jd3R3c1lnSDFZNUVBMXA3SThUaFpvQjl4L214NFptMmNCaWR0RUtBbWVUalU3NUhjMFNsUmRYRGlVCjVMWTVsKzN0c1NIWUxwbXE1MFg4d1Y2QXRtNndmZ0RYUlowL08vZERvazdncmM5NGhRL2twdWJjZ1l4R0pDZ2QKUTFDTUI0UXAvZFBmOVFyaG9vRHpYRlU2aVd3OVlQcjQvVW14WFJPK1oxTUsxSGhpMXVEcDZaeTcraGl3MVRvRQpKc0c5ekZUT3lXVEEybjF4WUF6SEtvZUNrNW8wK05YSzFpMTFObTRQTlU5cFl4OVN1cVVBQVlmdUhIOWpxWHFQCkg2aTQvRzRnZ2FBRUVBMm03eGVxRWVGd2NIOWMwYVAwcjIxTzNwcS9COHRXZkpmajVrV0ZIcUpraUovZTNTUmkKdTlTWElKQTBVVXYwOHZUS1R5TEtZWDIvQ1lLSWJjS1NucytESlRicVEvMD0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo="
+    rules:
+      - apiGroups: ["apps", ""]
+        resources:
+          - "pods"
+        apiVersions:
+          - "*"
+        operations:
+          - CREATE
+    namespaceSelector:
+      matchLabels:
+        trivy-image-validator: enabled
+{{- end -}}

@@ -1,7 +1,7 @@
 image:
-  repository: devopstales/trivy-scanner-admission
+  repository: devopstales/trivy-image-validator
   pullPolicy: Always
-  tag: "1.0.2"
+  tag: "1.0.0"
 
 imagePullSecrets: []
 podSecurityContext:
@@ -14,3 +14,18 @@ storage:
 privateRegistry:
   enabled: false
   secretNmae: ""
+
+serviceAccount:
+  create: true
+
+# trivy-image-validator requires a certificate key pair and corresponding certificate authority
+# to properly register its webhooks. This can be done in one of 2 ways:
+# 1) Use pre build certificate locatid in the docker image. This certificate is valid for:
+# trivy-image-validator.validation.svc so the service name mast be trivy-image-validator
+# and the namespace wher deployd must be validation
+namespace: validation
+serviceName: trivy-image-validator
+# 2) Let Helm generate a self signed cert, by setting createSelfSignedCert true
+# and use cert-manager to inject the CA to the ValidatingWebhookConfiguration
+# If letting Kyverno create its own CA or providing your own, make createSelfSignedCert is false
+createSelfSignedCert: true

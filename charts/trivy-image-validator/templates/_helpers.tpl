@@ -30,6 +30,24 @@ Create chart name and version as used by the chart label.
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
+{{/* Get the namespace name. */}}
+{{- define "trivy-image-validator.namespace" -}}
+{{- if .Values.createSelfSignedCert }}
+    {{- .Release.Namespace -}}
+{{- else -}}
+    {{- .Values.namespace -}}
+{{- end -}}
+{{- end -}}
+
+{{/* Create the name of the service to use */}}
+{{- define "trivy-image-validator.serviceName" -}}
+{{- if .Values.createSelfSignedCert }}
+    {{- printf "%s-svc" (include "trivy-image-validator.fullname" .) | trunc 63 | trimSuffix "-" -}}
+{{- else -}}
+    {{- .Values.serviceName -}}
+{{- end -}}
+{{- end -}}
+
 {{/*
 Common labels
 */}}

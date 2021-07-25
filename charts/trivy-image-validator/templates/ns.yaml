@@ -1,6 +1,9 @@
+{{- if .Values.createSelfSignedCert }}
+{{- else -}}
 apiVersion: v1
 kind: Namespace
 metadata:
   labels:
     kubernetes.io/metadata.name: validation
   name: validation
+{{- end -}}
