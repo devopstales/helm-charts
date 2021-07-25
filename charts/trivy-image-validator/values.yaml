@@ -28,4 +28,4 @@ serviceName: trivy-image-validator
 # 2) Let Helm generate a self signed cert, by setting createSelfSignedCert true
 # and use cert-manager to inject the CA to the ValidatingWebhookConfiguration
 # If letting Kyverno create its own CA or providing your own, make createSelfSignedCert is false
-createSelfSignedCert: true
+createSelfSignedCert: false
