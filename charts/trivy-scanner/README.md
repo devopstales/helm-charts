@@ -13,15 +13,15 @@ The following tables lists configurable parameters of the anchore-policy-validat
 | image.tag                           | image tag | 2.1 |
 | imagePullSecrets                    | imagePullSecrets list | [] |
 | podSecurityContext.fsGroup          | mount id | 10001 |
-| serviceAccount.create               | create serviceAccount | treu |
-| serviceAccount.annotations          | add annoatation to serviceAccount | {} |
+| serviceAccount.create               | create serviceAccount | true |
+| serviceAccount.annotations          | add annotation to serviceAccount | {} |
 | serviceAccount.name                 | name of the serviceAccount | trivy-scanner |
 | monitoring.port                     | prometheus endpoint port | 9115 |
 | serviceMonitor.enabled              | enable serviceMonitor object creation | false |
 | serviceMonitor.namespace            | where to create serviceMonitor object | kube-system |
 | storage.enabled                     | enable pv to store trivy database | true |
 | storage.size                        | pv size | 1Gi |
-| schedule                            | cronjob sheduler | "*/5 * * * *" |
+| schedule                            | cronjob scheduler | "*/5 * * * *" |
 | privateRegistry.enabled             | mount pull secret for private Registry | false |
 | privateRegistry.secretName          | pull secret name for private Registry |
 | githubToken.enabled                 | Enable githubToken usage for trivy database update | false |
