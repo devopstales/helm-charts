@@ -27,7 +27,7 @@ schedule: "*/5 * * * *"
 
 privateRegistry:
   enabled: false
-  secretNmae: ""
+  secretName: ""
 
 githubToken:
   enabled: false
