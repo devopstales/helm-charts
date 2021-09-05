@@ -1,6 +1,7 @@
 # DevOpsTales [Helm](https://helm.sh) Charts
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/devopstales)](https://artifacthub.io/packages/search?repo=devopstales)
 
 This repository contains [Helm](https://helm.sh) charts for various projects
 
