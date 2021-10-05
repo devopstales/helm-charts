@@ -1,0 +1,40 @@
+image:
+  repository: devopstales/trivy-operator
+  pullPolicy: Always
+  tag: "0.2"
+
+imagePullSecrets: []
+podSecurityContext:
+  fsGroup: 10001
+  fsGroupChangePolicy: "OnRootMismatch"
+
+serviceAccount:
+  create: true
+  annotations: {}
+  name: "trivy-operator"
+
+monitoring:
+  port: "9115"
+
+serviceMonitor:
+  enabled: false
+  namespace: "kube-system"
+
+storage:
+  enabled: true
+  size: 1Gi
+
+NamespaceScanner:
+  crontab: "*/5 * * * *"
+  namespaceSelector: "trivy-scan"
+
+registryAuth:
+  enabled: false
+  registry:
+  - name: docker.io
+    user: "user"
+    password: "password"
+
+githubToken:
+  enabled: false
+  token: ""

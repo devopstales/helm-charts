@@ -1,0 +1,17 @@
+{{- if .Values.serviceMonitor.enabled -}}
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  labels:
+    serviceapp: {{ include "trivy-operator.fullname" . }}-trivy-operator
+    release: prometheus
+  name: {{ include "trivy-operator.fullname" . }}-trivy-operator
+  namespace: ecretName: {{ .Values.serviceMonitor.namespace }}
+spec:
+  selector:
+    matchLabels:
+      app: trivy-operator
+      {{- include "trivy-operator.labels" . | nindent 4 }}
+  endpoints:
+  - port: metrics
+{{- end }}
