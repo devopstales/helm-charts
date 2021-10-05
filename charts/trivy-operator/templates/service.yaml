@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "trivy-operator.fullname" . }}-trivy-operator
+  labels:
+    app: trivy-operator
+    {{- include "trivy-operator.labels" . | nindent 4 }}
+spec:
+  selector:
+    app: trivy-operator
+    {{- include "trivy-operator.selectorLabels" . | nindent 4 }}
+  ports:
+    - name: metrics
+      targetPort: TCP
+      port: {{ .Values.monitoring.port }}
+      targetPort: 9115

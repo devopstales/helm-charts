@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: trivy-operator
+    {{- include "trivy-operator.labels" . | nindent 4 }}
+  name: {{ include "trivy-operator.fullname" . }}-trivy-operator
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: trivy-operator
+      {{- include "trivy-operator.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        app: trivy-operator
+        {{- include "trivy-operator.selectorLabels" . | nindent 8 }}
+      annotations:
+        prometheus.io/port: "9115"
+        prometheus.io/scrape: "true"
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      serviceAccountName: {{ include "trivy-operator.serviceAccountName" . }}-trivy-operator
+      containers:
+      - name: {{ .Chart.Name }}
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        env:
+{{- if .Values.githubToken.enabled }}
+        - name: GITHUB_TOKEN
+          value: "{{ .Values.githubToken.token }}"
+{{- end }}
+        volumeMounts:
+        - name: cache
+          mountPath: "/home/trivy-operator/trivy-cache"
+        ports:
+          - containerPort: 9115
+      volumes:
+{{- if .Values.storage.enabled }}
+      - name: cache
+        persistentVolumeClaim:
+            claimName: {{ include "trivy-operator.fullname" . }}-trivy-cache
+{{- end }}
