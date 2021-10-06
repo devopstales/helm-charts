@@ -22,8 +22,11 @@ The following tables lists configurable parameters of the anchore-policy-validat
 | storage.enabled                     | enable pv to store trivy database | true |
 | storage.size                        | pv size | 1Gi |
 | NamespaceScanner.crontab            | cronjob scheduler | "*/5 * * * *" |
-| NamespaceScanner.namespaceSelector   | Namespace Selector | "trivy-scan" |
-| privateRegistry.enabled             | mount pull secret for private Registry | false |
-| privateRegistry.secretName          | pull secret name for private Registry |
+| NamespaceScanner.namespaceSelector  | Namespace Selector | "trivy-scan" |
+| registryAuth.enabled                | enable registry authentication in operator | false |
+| registryAuth.registry               | registry name for authentication |
+| registryAuth.user                   | username for authentication |
+| registryAuth.password               | password for authentication |
 | githubToken.enabled                 | Enable githubToken usage for trivy database update | false |
 | githubToken.token                   | githubToken value | "" |
+
