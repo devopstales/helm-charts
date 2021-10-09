@@ -7,7 +7,7 @@ This chart deploys an operator that default every 5 minutes execute a scan scrip
 
 ## :warning: Deprecation and Archive Notice
 
-This chart is Deprecated and do not maintaned eny more.
+This chart is Deprecated and do not maintained eny more. Use [trivy-operator](https://github.com/devopstales/trivy-operator) instead.
 
 ## Configuration
 
