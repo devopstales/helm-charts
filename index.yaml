@@ -34,6 +34,16 @@ entries:
   trivy-scanner:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2021-10-09T10:16:58.152622505+02:00"
+    description: A Helm chart for trivy-scanner
+    digest: 1dc41351d8b340b6135dff5fc4ef25876aa27e934463aa2d422081002cadfca9
+    name: trivy-scanner
+    type: application
+    urls:
+    - https://github.com/devopstales/helm-charts/releases/download/trivy-scanner-1.0.1/trivy-scanner-1.0.1.tgz
+    version: 1.0.1
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2021-09-05T17:52:29.327545037+02:00"
     description: A Helm chart for trivy-scanner
     digest: 48cea19d8775e74f960153d7c43ea82fbf9adaa988ea00b787a38cf6988e51d4
@@ -52,4 +62,4 @@ entries:
     urls:
     - https://github.com/devopstales/helm-charts/releases/download/trivy-scanner-0.1.0/trivy-scanner-0.1.0.tgz
     version: 0.1.0
-generated: "2021-09-05T17:52:29.32760541+02:00"
+generated: "2021-10-09T10:16:58.152707018+02:00"
