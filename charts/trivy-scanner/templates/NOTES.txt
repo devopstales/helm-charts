@@ -1,0 +1,3 @@
+Warning {{ .Chart.Name }} is Deprecated and do not maintaned eny more.
+
+Use trivy-operator instad.
