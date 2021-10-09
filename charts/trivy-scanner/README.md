@@ -1,6 +1,13 @@
+|![](https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Warning.svg/156px-Warning.svg.png) | This project is no longer supported.
+|---|---|
+
 ### Trivy Scanner Operator
 
 This chart deploys an operator that default every 5 minutes execute a scan script. It will get image list from all namespaces with the label `trivy=true`, and then scan this images with trivy, finally we will get metrics on `http://[pod-ip]:9115/metrics`
+
+## :warning: Deprecation and Archive Notice
+
+This chart is Deprecated and do not maintaned eny more.
 
 ## Configuration
 
