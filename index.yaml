@@ -31,6 +31,17 @@ entries:
     urls:
     - https://github.com/devopstales/helm-charts/releases/download/trivy-image-validator-0.1.0/trivy-image-validator-0.1.0.tgz
     version: 0.1.0
+  trivy-operator:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2021-10-10T09:43:16.040546029+02:00"
+    description: A Helm chart for trivy-operator
+    digest: db4e58645c1773840409e1e00cc7546a7fdb0b0eb99e429a177c76ff5ee07fc9
+    name: trivy-operator
+    type: application
+    urls:
+    - https://github.com/devopstales/helm-charts/releases/download/trivy-operator-1.0.0/trivy-operator-1.0.0.tgz
+    version: 1.0.0
   trivy-scanner:
   - apiVersion: v2
     appVersion: 1.16.0
@@ -62,4 +73,4 @@ entries:
     urls:
     - https://github.com/devopstales/helm-charts/releases/download/trivy-scanner-0.1.0/trivy-scanner-0.1.0.tgz
     version: 0.1.0
-generated: "2021-10-09T10:16:58.152707018+02:00"
+generated: "2021-10-10T09:43:16.040599716+02:00"
