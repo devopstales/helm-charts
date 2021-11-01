@@ -46,6 +46,16 @@ entries:
   trivy-operator:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2021-11-01T17:33:13.094348+01:00"
+    description: A Helm chart for trivy-operator
+    digest: 6ff2f616974e906be2dc5482e309641869a6c7b561d666778974ede3b162f411
+    name: trivy-operator
+    type: application
+    urls:
+    - https://github.com/devopstales/helm-charts/releases/download/trivy-operator-1.0.1/trivy-operator-1.0.1.tgz
+    version: 1.0.1
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2021-10-10T09:43:16.040546029+02:00"
     description: A Helm chart for trivy-operator
     digest: db4e58645c1773840409e1e00cc7546a7fdb0b0eb99e429a177c76ff5ee07fc9
@@ -85,4 +95,4 @@ entries:
     urls:
     - https://github.com/devopstales/helm-charts/releases/download/trivy-scanner-0.1.0/trivy-scanner-0.1.0.tgz
     version: 0.1.0
-generated: "2021-11-01T11:45:10.187675+01:00"
+generated: "2021-11-01T17:33:13.094366+01:00"
