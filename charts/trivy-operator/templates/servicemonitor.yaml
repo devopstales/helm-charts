@@ -6,7 +6,7 @@ metadata:
     serviceapp: {{ include "trivy-operator.fullname" . }}-trivy-operator
     release: prometheus
   name: {{ include "trivy-operator.fullname" . }}-trivy-operator
-  namespace: ecretName: {{ .Values.serviceMonitor.namespace }}
+  namespace: {{ .Release.Namespace }}
 spec:
   selector:
     matchLabels:
