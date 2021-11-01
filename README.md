@@ -8,6 +8,7 @@ This repository contains [Helm](https://helm.sh) charts for various projects
 * [Trivy Image Validator Admission Controller](https://github.com/devopstales/helm-charts/tree/main/charts/trivy-image-validator/)
 * [Trivy Scanner Operator](https://github.com/devopstales/helm-charts/tree/main/charts/trivy-scanner/) - :warning: Deprecated
 * [Trivy Operator](https://github.com/devopstales/helm-charts/tree/main/charts/trivy-operator/)
+* [PushProx](https://github.com/devopstales/helm-charts/tree/main/charts/PushProx/)
 
 ## Usage
 
