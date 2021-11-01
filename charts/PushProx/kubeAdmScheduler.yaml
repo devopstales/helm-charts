@@ -1,0 +1,16 @@
+metricsPort: 10259
+component: kube-scheduler
+clients:
+  port: 10012
+  useLocalhost: true
+  https:
+    enabled: true
+    useServiceAccountCredentials: true
+    insecureSkipVerify: true
+  nodeSelector:
+    node-role.kubernetes.io/master: ""
+  tolerations:
+  - effect: "NoExecute"
+    operator: "Exists"
+  - effect: "NoSchedule"
+    operator: "Exists"
