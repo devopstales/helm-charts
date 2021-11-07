@@ -8,6 +8,7 @@ This repository contains [Helm](https://helm.sh) charts for various projects
 * [Trivy Scanner Operator](charts/trivy-scanner/) - :warning: Deprecated
 * [Trivy Operator](charts/trivy-operator/)
 * [PushProx](charts/PushProx)
+* [Permission Manager](charts/permission-manager/)
 
 ## Usage
 
