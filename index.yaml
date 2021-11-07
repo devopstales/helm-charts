@@ -12,6 +12,17 @@ entries:
     urls:
     - https://github.com/devopstales/helm-charts/releases/download/PushProx-0.1.4/PushProx-0.1.4.tgz
     version: 0.1.4
+  permission-manager:
+  - apiVersion: v2
+    appVersion: 1.7.1-rc1
+    created: "2021-11-07T14:05:11.70103679+01:00"
+    description: A Helm chart for Kubernetes
+    digest: 52863b2734eda6fcac5b356c47caf7aaada2e46d4db824c4dfd462275c8c44ab
+    name: permission-manager
+    type: application
+    urls:
+    - https://github.com/devopstales/helm-charts/releases/download/permission-manager-1.7.1-rc1/permission-manager-1.7.1-rc1.tgz
+    version: 1.7.1-rc1
   trivy-image-validator:
   - apiVersion: v2
     appVersion: 1.16.0
@@ -95,4 +106,4 @@ entries:
     urls:
     - https://github.com/devopstales/helm-charts/releases/download/trivy-scanner-0.1.0/trivy-scanner-0.1.0.tgz
     version: 0.1.0
-generated: "2021-11-01T17:33:13.094366+01:00"
+generated: "2021-11-07T14:05:11.701106094+01:00"

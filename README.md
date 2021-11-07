@@ -9,6 +9,7 @@ This repository contains [Helm](https://helm.sh) charts for various projects
 * [Trivy Scanner Operator](https://github.com/devopstales/helm-charts/tree/main/charts/trivy-scanner/) - :warning: Deprecated
 * [Trivy Operator](https://github.com/devopstales/helm-charts/tree/main/charts/trivy-operator/)
 * [PushProx](https://github.com/devopstales/helm-charts/tree/main/charts/PushProx/)
+* [Permission Manager](https://github.com/devopstales/helm-charts/tree/main/charts/permission-manager/)
 
 ## Usage
 
