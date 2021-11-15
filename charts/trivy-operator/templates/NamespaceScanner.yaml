@@ -3,7 +3,7 @@ kind: NamespaceScanner
 metadata:
   name: {{ include "trivy-operator.fullname" . }}-main-config
   annotations:
-    "helm.sh/hook": post-install
+    "helm.sh/hook": post-install,upgrade
 spec:
   crontab: "{{ .Values.NamespaceScanner.crontab }}"
   namespace_selector: "{{ .Values.NamespaceScanner.namespaceSelector }}"
