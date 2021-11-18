@@ -1,9 +1,16 @@
 apiVersion: v2
 name: trivy-operator
 description: A Helm chart for trivy-operator
-
 type: application
-
 version: 1.0.1
-
 appVersion: "1.16.0"
+kubeVersion: ">=1.19.x-0"
+keywords:
+  - Trivy
+  - Admission Controller
+  - Operator
+  - Image Secutity
+icon: 
+sources:
+  - https://github.com/devopstales/trivy-operator
+  - https://github.com/devopstales/helm-charts
