@@ -10,7 +10,24 @@ spec:
     app: trivy-operator
     {{- include "trivy-operator.selectorLabels" . | nindent 4 }}
   ports:
-    - name: metrics
-      targetPort: TCP
+    - name: metric
       port: {{ .Values.monitoring.port }}
+      protocol: TCP
       targetPort: 9115
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: trivy-image-validator
+  labels:
+    app: trivy-operator
+    {{- include "trivy-operator.labels" . | nindent 4 }}
+spec:
+  selector:
+    app: trivy-operator
+    {{- include "trivy-operator.selectorLabels" . | nindent 4 }}
+  ports:
+    - name: webhook
+      targetPort: 8443
+      protocol: TCP
+      port: 443

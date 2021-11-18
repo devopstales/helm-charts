@@ -32,6 +32,10 @@ spec:
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         env:
+        - name: POD_NAMESPACE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
 {{- if .Values.githubToken.enabled }}
         - name: GITHUB_TOKEN
           value: "{{ .Values.githubToken.token }}"
@@ -40,7 +44,12 @@ spec:
         - name: cache
           mountPath: "/home/trivy-operator/trivy-cache"
         ports:
-          - containerPort: 9115
+          - name: metric
+            containerPort: 9115
+            protocol: TCP
+          - name: https
+            containerPort: 8443
+            protocol: TCP
       volumes:
 {{- if .Values.storage.enabled }}
       - name: cache
