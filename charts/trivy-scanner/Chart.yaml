@@ -1,9 +1,7 @@
 apiVersion: v2
 name: trivy-scanner
 description: A Helm chart for trivy-scanner
-
 type: application
-
-version: 1.0.1
-
+version: 1.0.2
 appVersion: "1.16.0"
+deprecated: true

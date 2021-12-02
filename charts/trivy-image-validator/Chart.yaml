@@ -1,9 +1,7 @@
 apiVersion: v2
 name: trivy-image-validator
 description: A Helm chart for trivy-image-validator Admission Controller
-
 type: application
-
-version: 1.0.1
-
+version: 1.0.2
 appVersion: "1.16.0"
+deprecated: true
