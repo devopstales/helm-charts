@@ -26,6 +26,17 @@ entries:
   trivy-image-validator:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2021-12-02T11:38:01.831607+01:00"
+    deprecated: true
+    description: A Helm chart for trivy-image-validator Admission Controller
+    digest: 7ac5c09e0fda7630f7386b85ef7038f7f100c5574007e652576df38607857d92
+    name: trivy-image-validator
+    type: application
+    urls:
+    - https://github.com/devopstales/helm-charts/releases/download/trivy-image-validator-1.0.2/trivy-image-validator-1.0.2.tgz
+    version: 1.0.2
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2021-09-05T17:52:29.117807068+02:00"
     description: A Helm chart for trivy-image-validator Admission Controller
     digest: ee7271fc208a72ce7d49e0db6f96596d48564d3ecc82c5c9881c6b4a6cf58d0d
@@ -57,6 +68,27 @@ entries:
   trivy-operator:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2021-12-02T11:38:02.014558+01:00"
+    description: A Helm chart for trivy-operator
+    digest: 1be88bcb145ce7d74a7d6bd96bff0bf679660d6f17f715d5a4ea207ba9d72cfb
+    home: https://github.com/devopstales/trivy-operator
+    icon: https://github.com/devopstales/helm-charts/raw/main/icons/trivy.png
+    keywords:
+    - Trivy
+    - Admission Controller
+    - Operator
+    - Image Secutity
+    kubeVersion: '>=1.19.x-0'
+    name: trivy-operator
+    sources:
+    - https://github.com/devopstales/trivy-operator
+    - https://github.com/devopstales/helm-charts
+    type: application
+    urls:
+    - https://github.com/devopstales/helm-charts/releases/download/trivy-operator-2.0.0/trivy-operator-2.0.0.tgz
+    version: 2.0.0
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2021-11-01T17:33:13.094348+01:00"
     description: A Helm chart for trivy-operator
     digest: 6ff2f616974e906be2dc5482e309641869a6c7b561d666778974ede3b162f411
@@ -76,6 +108,17 @@ entries:
     - https://github.com/devopstales/helm-charts/releases/download/trivy-operator-1.0.0/trivy-operator-1.0.0.tgz
     version: 1.0.0
   trivy-scanner:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2021-12-02T11:38:02.202283+01:00"
+    deprecated: true
+    description: A Helm chart for trivy-scanner
+    digest: ed3a2ee869fc9fc694bb3c0ced4cc986d78e559a473b01f28000debee3fff83b
+    name: trivy-scanner
+    type: application
+    urls:
+    - https://github.com/devopstales/helm-charts/releases/download/trivy-scanner-1.0.2/trivy-scanner-1.0.2.tgz
+    version: 1.0.2
   - apiVersion: v2
     appVersion: 1.16.0
     created: "2021-10-09T10:16:58.152622505+02:00"
@@ -106,4 +149,4 @@ entries:
     urls:
     - https://github.com/devopstales/helm-charts/releases/download/trivy-scanner-0.1.0/trivy-scanner-0.1.0.tgz
     version: 0.1.0
-generated: "2021-11-07T14:05:11.701106094+01:00"
+generated: "2021-12-02T11:38:02.202334+01:00"
