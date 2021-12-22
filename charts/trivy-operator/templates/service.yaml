@@ -4,6 +4,7 @@ metadata:
   name: {{ include "trivy-operator.fullname" . }}-trivy-operator
   labels:
     app: trivy-operator
+    service: metric
     {{- include "trivy-operator.labels" . | nindent 4 }}
 spec:
   selector:
