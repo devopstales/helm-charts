@@ -8,10 +8,16 @@ metadata:
   name: {{ include "trivy-operator.fullname" . }}-trivy-operator
   namespace: {{ .Release.Namespace }}
 spec:
+  endpoints:
+  - interval: 60s
+    path: /
+    scrapeTimeout: 30s
+    targetPort: 9115
+  namespaceSelector:
+    matchNames:
+    - {{ .Values.serviceMonitor.namespace }}
   selector:
     matchLabels:
       app: trivy-operator
-      {{- include "trivy-operator.labels" . | nindent 4 }}
-  endpoints:
-  - port: metrics
+      service: metric
 {{- end }}
