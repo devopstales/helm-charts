@@ -4,14 +4,14 @@ metadata:
   name: {{ include "trivy-operator.fullname" . }}-trivy-operator
   labels:
     app: trivy-operator
-    service: metric
+    service: metrics
     {{- include "trivy-operator.labels" . | nindent 4 }}
 spec:
   selector:
     app: trivy-operator
     {{- include "trivy-operator.selectorLabels" . | nindent 4 }}
   ports:
-    - name: metric
+    - name: metrics
       port: {{ .Values.monitoring.port }}
       protocol: TCP
       targetPort: 9115
