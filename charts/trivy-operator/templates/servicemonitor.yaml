@@ -13,11 +13,8 @@ spec:
     path: /
     scrapeTimeout: 30s
     targetPort: 9115
-  namespaceSelector:
-    matchNames:
-    - {{ .Values.serviceMonitor.namespace }}
   selector:
     matchLabels:
       app: trivy-operator
-      service: metric
+      service: metrics
 {{- end }}
