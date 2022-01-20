@@ -1,7 +1,7 @@
 kind: ConfigMap
 apiVersion: v1
 metadata:
-  name: {{ include "trivy-scanner.fullname" . }}-trivy-scanner-config
+  name: {{ include "trivy-scanner.fullname" . }}-config
 data:
   config.yaml: |-
     configVersion: v1
