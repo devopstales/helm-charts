@@ -4,7 +4,7 @@ metadata:
   labels:
     app: trivy-operator
     {{- include "trivy-operator.labels" . | nindent 4 }}
-  name: {{ include "trivy-operator.fullname" . }}-trivy-operator
+  name: {{ include "trivy-operator.fullname" . }}
 spec:
   replicas: 1
   selector:
@@ -26,7 +26,7 @@ spec:
       {{- end }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
-      serviceAccountName: {{ include "trivy-operator.serviceAccountName" . }}-trivy-operator
+      serviceAccountName: {{ include "trivy-operator.serviceAccountName" . }}
       containers:
       - name: {{ .Chart.Name }}
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"

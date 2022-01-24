@@ -4,7 +4,7 @@ metadata:
   labels:
     app: trivy-scanner
     {{- include "trivy-scanner.labels" . | nindent 4 }}
-  name: {{ include "trivy-scanner.fullname" . }}-trivy-scanner
+  name: {{ include "trivy-scanner.fullname" . }}
 spec:
   replicas: 1
   selector:
@@ -26,7 +26,7 @@ spec:
       {{- end }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
-      serviceAccountName: {{ include "trivy-scanner.serviceAccountName" . }}-trivy-scanner
+      serviceAccountName: {{ include "trivy-scanner.serviceAccountName" . }}
       containers:
       - name: {{ .Chart.Name }}
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
@@ -49,7 +49,7 @@ spec:
           - containerPort: 9115
       volumes:
       - configMap:
-          name: {{ include "trivy-scanner.fullname" . }}-trivy-scanner-config
+          name: {{ include "trivy-scanner.fullname" . }}-config
         name: operator-config
       - name: cache
         persistentVolumeClaim:
