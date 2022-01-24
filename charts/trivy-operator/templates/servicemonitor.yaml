@@ -3,9 +3,9 @@ apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
   labels:
-    serviceapp: {{ include "trivy-operator.fullname" . }}-trivy-operator
+    serviceapp: {{ include "trivy-operator.fullname" . }}
     release: prometheus
-  name: {{ include "trivy-operator.fullname" . }}-trivy-operator
+  name: {{ include "trivy-operator.fullname" . }}
   namespace: {{ .Release.Namespace }}
 spec:
   endpoints:

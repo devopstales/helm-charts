@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "trivy-image-validator.fullname" . }}-trivy-validation
+  name: {{ include "trivy-image-validator.fullname" . }}
   labels:
     app: trivy-validation
     {{- include "trivy-image-validator.labels" . | nindent 4 }}
