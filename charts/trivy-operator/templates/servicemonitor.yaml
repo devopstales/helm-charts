@@ -5,6 +5,7 @@ metadata:
   labels:
     serviceapp: {{ include "trivy-operator.fullname" . }}-trivy-operator
     release: prometheus
+    prometheus: main
   name: {{ include "trivy-operator.fullname" . }}-trivy-operator
   namespace: {{ .Release.Namespace }}
 spec:
