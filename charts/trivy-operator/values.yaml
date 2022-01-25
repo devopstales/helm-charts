@@ -13,6 +13,11 @@ serviceAccount:
   annotations: {}
   name: "trivy-operator"
 
+env:
+  vars:
+    - name: LOG_LEVEL
+      value: "INFO"
+
 monitoring:
   port: "9115"
 
