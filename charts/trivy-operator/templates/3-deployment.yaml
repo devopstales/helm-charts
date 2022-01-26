@@ -7,6 +7,8 @@ metadata:
   name: {{ include "trivy-operator.fullname" . }}
 spec:
   replicas: 1
+  strategy:
+    type: Recreate
   selector:
     matchLabels:
       app: trivy-operator
@@ -39,6 +41,9 @@ spec:
 {{- if .Values.githubToken.enabled }}
         - name: GITHUB_TOKEN
           value: "{{ .Values.githubToken.token }}"
+{{- end }}
+{{- if .Values.env.vars }}
+{{ toYaml .Values.env.vars | indent 8 }}
 {{- end }}
         volumeMounts:
         - name: cache
