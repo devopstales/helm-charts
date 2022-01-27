@@ -1,5 +1,5 @@
 image:
-  repository: europe-west3-docker.pkg.dev/global-network-111/ops-docker/trivy-operator
+  repository: devopstales/trivy-operator
   pullPolicy: Always
   tag: "2.2"
 
