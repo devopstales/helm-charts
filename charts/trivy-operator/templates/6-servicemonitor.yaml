@@ -4,7 +4,9 @@ kind: ServiceMonitor
 metadata:
   labels:
     serviceapp: {{ include "trivy-operator.fullname" . }}-trivy-operator
-    release: prometheus
+    {{- with .Values.serviceMonitor.labels }}
+    {{- toYaml . | nindent 4 }}
+    {{- end }}
   name: {{ include "trivy-operator.fullname" . }}-trivy-operator
   namespace: {{ .Release.Namespace }}
 spec:

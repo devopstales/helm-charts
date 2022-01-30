@@ -5,8 +5,8 @@ metadata:
   annotations:
     "helm.sh/hook": post-install,post-upgrade
 spec:
-  crontab: "{{ .Values.NamespaceScanner.crontab }}"
-  namespace_selector: "{{ .Values.NamespaceScanner.namespaceSelector }}"
+  crontab: "{{ .Values.namespaceScanner.crontab }}"
+  namespace_selector: "{{ .Values.namespaceScanner.namespaceSelector }}"
   {{- if .Values.registryAuth.enabled }}
   {{- with .Values.registryAuth.registry }}
   registry:

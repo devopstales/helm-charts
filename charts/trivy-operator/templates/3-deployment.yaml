@@ -4,9 +4,11 @@ metadata:
   labels:
     app: trivy-operator
     {{- include "trivy-operator.labels" . | nindent 4 }}
-  name: {{ include "trivy-operator.fullname" . }}-trivy-operator
+  name: {{ include "trivy-operator.fullname" . }}
 spec:
   replicas: 1
+  strategy:
+    type: Recreate
   selector:
     matchLabels:
       app: trivy-operator
@@ -26,7 +28,7 @@ spec:
       {{- end }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
-      serviceAccountName: {{ include "trivy-operator.serviceAccountName" . }}-trivy-operator
+      serviceAccountName: {{ include "trivy-operator.serviceAccountName" . }}
       containers:
       - name: {{ .Chart.Name }}
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
@@ -39,6 +41,9 @@ spec:
 {{- if .Values.githubToken.enabled }}
         - name: GITHUB_TOKEN
           value: "{{ .Values.githubToken.token }}"
+{{- end }}
+{{- if .Values.env.vars }}
+{{ toYaml .Values.env.vars | indent 8 }}
 {{- end }}
         volumeMounts:
         - name: cache

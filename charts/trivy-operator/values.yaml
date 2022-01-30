@@ -3,6 +3,11 @@ image:
   pullPolicy: Always
   tag: "2.2"
 
+env:
+  vars:
+    - name: LOG_LEVEL
+      value: "INFO"
+
 imagePullSecrets: []
 podSecurityContext:
   fsGroup: 10001
@@ -19,12 +24,14 @@ monitoring:
 serviceMonitor:
   enabled: false
   namespace: "kube-system"
+  labels:
+    release: prometheus
 
 storage:
   enabled: true
   size: 1Gi
 
-NamespaceScanner:
+namespaceScanner:
   crontab: "*/5 * * * *"
   namespaceSelector: "trivy-scan"
 
