@@ -9,6 +9,7 @@ This repository contains [Helm](https://helm.sh) charts for various projects
 * [Trivy Operator](charts/trivy-operator/)
 * [PushProx](charts/PushProx)
 * [Permission Manager](charts/permission-manager/)
+* [kuberos](charts/kuberos/)
 
 ## Usage
 
