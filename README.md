@@ -10,6 +10,7 @@ This repository contains [Helm](https://helm.sh) charts for various projects
 * [Trivy Operator](https://github.com/devopstales/helm-charts/tree/main/charts/trivy-operator/)
 * [PushProx](https://github.com/devopstales/helm-charts/tree/main/charts/PushProx/)
 * [Permission Manager](https://github.com/devopstales/helm-charts/tree/main/charts/permission-manager/)
+* [kuberos](https://github.com/devopstales/helm-charts/tree/main/charts/kuberos/)
 
 ## Usage
 

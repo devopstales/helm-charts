@@ -12,6 +12,22 @@ entries:
     urls:
     - https://github.com/devopstales/helm-charts/releases/download/PushProx-0.1.4/PushProx-0.1.4.tgz
     version: 0.1.4
+  kuberos:
+  - apiVersion: v1
+    appVersion: "2018-07-03"
+    created: "2022-01-30T09:56:19.685124+01:00"
+    description: An OIDC authentication helper for Kubernetes
+    digest: d402948da7b3929b0835477816d7db4858d174454256375f97dfbb746ca44ed4
+    home: https://github.com/negz/kuberos
+    maintainers:
+    - email: ghtimothy@timothy.fromnz.net
+      name: timothyclarke
+    name: kuberos
+    sources:
+    - https://github.com/negz/kuberos
+    urls:
+    - https://github.com/devopstales/helm-charts/releases/download/kuberos-0.2.1/kuberos-0.2.1.tgz
+    version: 0.2.1
   permission-manager:
   - apiVersion: v2
     appVersion: 1.7.1-rc1
@@ -191,4 +207,4 @@ entries:
     urls:
     - https://github.com/devopstales/helm-charts/releases/download/trivy-scanner-0.1.0/trivy-scanner-0.1.0.tgz
     version: 0.1.0
-generated: "2021-12-27T12:30:22.63565+01:00"
+generated: "2022-01-30T09:56:19.68515+01:00"
