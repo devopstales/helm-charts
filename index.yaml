@@ -84,6 +84,27 @@ entries:
   trivy-operator:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2022-02-04T14:22:47.801005+01:00"
+    description: A Helm chart for trivy-operator
+    digest: e5dec73e939f8116917fb9d8c9d85f1f8ea7b0d5a90726fd877538d01413bb7c
+    home: https://github.com/devopstales/trivy-operator
+    icon: https://github.com/devopstales/helm-charts/raw/main/icons/trivy.png
+    keywords:
+    - Trivy
+    - Admission Controller
+    - Operator
+    - Image Secutity
+    kubeVersion: '>=1.19.x-0'
+    name: trivy-operator
+    sources:
+    - https://github.com/devopstales/trivy-operator
+    - https://github.com/devopstales/helm-charts
+    type: application
+    urls:
+    - https://github.com/devopstales/helm-charts/releases/download/trivy-operator-2.3/trivy-operator-2.3.tgz
+    version: "2.3"
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2021-12-27T12:30:22.635602+01:00"
     description: A Helm chart for trivy-operator
     digest: 9e6593ce5e0bc829fb884f5222a919d80c4b5dc54e74abbd71059f0570c8f561
@@ -207,4 +228,4 @@ entries:
     urls:
     - https://github.com/devopstales/helm-charts/releases/download/trivy-scanner-0.1.0/trivy-scanner-0.1.0.tgz
     version: 0.1.0
-generated: "2022-01-30T09:56:19.68515+01:00"
+generated: "2022-02-04T14:22:47.801055+01:00"
