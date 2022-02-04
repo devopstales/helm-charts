@@ -34,6 +34,7 @@ storage:
 namespaceScanner:
   crontab: "*/5 * * * *"
   namespaceSelector: "trivy-scan"
+  clusterWide: false
 
 registryAuth:
   enabled: false
