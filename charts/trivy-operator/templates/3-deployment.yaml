@@ -45,9 +45,11 @@ spec:
 {{- if .Values.env.vars }}
 {{ toYaml .Values.env.vars | indent 8 }}
 {{- end }}
+{{- if .Values.storage.enabled }}
         volumeMounts:
         - name: cache
           mountPath: "/home/trivy-operator/trivy-cache"
+{{- end }}
         ports:
           - name: metric
             containerPort: 9115
@@ -55,8 +57,8 @@ spec:
           - name: https
             containerPort: 8443
             protocol: TCP
-      volumes:
 {{- if .Values.storage.enabled }}
+      volumes:
       - name: cache
         persistentVolumeClaim:
             claimName: {{ include "trivy-operator.fullname" . }}-trivy-cache
