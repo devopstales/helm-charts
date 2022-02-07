@@ -39,6 +39,16 @@ entries:
     urls:
     - https://github.com/devopstales/helm-charts/releases/download/permission-manager-1.7.1-rc1/permission-manager-1.7.1-rc1.tgz
     version: 1.7.1-rc1
+  - apiVersion: v2
+    appVersion: 1.7.1-rc1
+    created: "2022-02-07T08:38:02.96753+01:00"
+    description: Web UI for ServiceAccount RBAC manager
+    digest: cf3f9c952b11ff44edd9c5841907acf56d3ad8ef20f46a3a6815d9d1d5670f8c
+    name: permission-manager
+    type: application
+    urls:
+    - https://github.com/devopstales/helm-charts/releases/download/permission-manager-1.7.1-rc1/permission-manager-1.7.1-rc1.tgz
+    version: 1.7.1-rc1
   trivy-image-validator:
   - apiVersion: v2
     appVersion: 1.16.0
@@ -228,4 +238,4 @@ entries:
     urls:
     - https://github.com/devopstales/helm-charts/releases/download/trivy-scanner-0.1.0/trivy-scanner-0.1.0.tgz
     version: 0.1.0
-generated: "2022-02-04T14:22:47.801055+01:00"
+generated: "2022-02-07T08:38:03.164266+01:00"
