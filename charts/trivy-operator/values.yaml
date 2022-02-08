@@ -3,10 +3,7 @@ image:
   pullPolicy: Always
   tag: "2.3"
 
-env:
-  vars:
-    - name: LOG_LEVEL
-      value: "INFO"
+log_level: "INFO"
 
 imagePullSecrets: []
 podSecurityContext:
