@@ -44,9 +44,6 @@ spec:
         - name: GITHUB_TOKEN
           value: "{{ .Values.githubToken.token }}"
 {{- end }}
-{{- if .Values.env.vars }}
-{{ toYaml .Values.env.vars | indent 8 }}
-{{- end }}
 {{- if .Values.storage.enabled }}
         volumeMounts:
         - name: cache
