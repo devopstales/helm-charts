@@ -4,7 +4,7 @@ This chart deploys an operator that default every 5 minutes execute a scan scrip
 
 ## Configuration
 
-The following tables lists configurable parameters of the anchore-policy-validator chart and their default values.
+The following tables lists configurable parameters of the trivy-operator chart and their default values.
 
 |               Parameter             |                Description                  |                  Default                 |
 | ----------------------------------- | ------------------------------------------- | -----------------------------------------|

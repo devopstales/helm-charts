@@ -1,12 +1,9 @@
 image:
   repository: devopstales/trivy-operator
   pullPolicy: Always
-  tag: "2.2"
+  tag: "2.3"
 
-env:
-  vars:
-    - name: LOG_LEVEL
-      value: "INFO"
+log_level: "INFO"
 
 imagePullSecrets: []
 podSecurityContext:
@@ -34,6 +31,7 @@ storage:
 namespaceScanner:
   crontab: "*/5 * * * *"
   namespaceSelector: "trivy-scan"
+  clusterWide: false
 
 registryAuth:
   enabled: false
