@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "kube-openid-connect.fullname" . }}-config
+  labels:
+    {{- include "kube-openid-connect.labels" . | nindent 4 }}
+data:
+  OAUTH_REDIRECT_URI: "{{ .Values.server.oidcRedirectUrlHttpScema }}://{{ .Values.server.oidcRedirectUrlHost }}/callback"
+  OAUTH_URI: "{{ .Values.server.oidcClientURL }}"
+  OAUTH_CLIENT_ID: "{{ .Values.server.oidcClientID }}"
+  OAUTH_CLIENT_SECRET: "{{ .Values.server.oidcSecret }}"
+  K8S_CONTEXT: "{{ .Values.server.k8sContext }}"
+  K8S_SERVER_URL: "{{ .Values.server.k8sApiServer }}"
+  K8S_SERVER_CA: "{{ .Values.server.k8sCaCrt }}"
