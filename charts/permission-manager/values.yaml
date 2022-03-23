@@ -100,3 +100,12 @@ config:
 
   # Random password to login to web-app. PLEASE CHANGE!
   basicAuthPassword: RrXwZSBdTXhQL6 
+  
+  # Set to name of a secret. will read basicAuthPassword from secret instead of confg.basicAuthPassword 
+  # example : basicAuthExistingSecret: permission-maanger-htpasswd that has the same structure as the chart's secret
+  # stringData:
+  #   PORT: "4000" # port where server is exposed
+  #   CLUSTER_NAME: {{ .Values.config.clusterName }}
+  #   CONTROL_PLANE_ADDRESS: {{ .Values.config.controlePlaneAddress }}
+  #   BASIC_AUTH_PASSWORD: {{ .Values.config.basicAuthPassword }}
+  existingSecret: false
