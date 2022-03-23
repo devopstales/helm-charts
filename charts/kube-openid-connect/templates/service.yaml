@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "kube-openid-connect.fullname" . }}
+  labels:
+    {{- include "kube-openid-connect.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - name: http
+      targetPort: http
+      protocol: TCP
+      port: {{ .Values.service.port }}
+  selector:
+    {{- include "kube-openid-connect.selectorLabels" . | nindent 4 }}
