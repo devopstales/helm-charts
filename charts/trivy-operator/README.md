@@ -19,8 +19,11 @@ The following tables lists configurable parameters of the trivy-operator chart a
 | monitoring.port                     | prometheus endpoint port | 9115 |
 | serviceMonitor.enabled              | enable serviceMonitor object creation | false |
 | serviceMonitor.namespace            | where to create serviceMonitor object | kube-system |
-| storage.enabled                     | enable pv to store trivy database | true |
-| storage.size                        | pv size | 1Gi |
+| persistence.enabled                 | enable pv to store trivy database | true |
+| persistence.size                    | pv size | 1Gi |
+| persistence.storageClass            | storageClass | Not defined |
+| persistence.accessMode              | accessMode | ReadWriteOnce |
+| persistence.annotations             | add extra annotations | No value |
 | NamespaceScanner.crontab            | cronjob scheduler | "*/5 * * * *" |
 | NamespaceScanner.namespaceSelector  | Namespace Selector | "trivy-scan" |
 | registryAuth.enabled                | enable registry authentication in operator | false |
