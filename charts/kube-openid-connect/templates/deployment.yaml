@@ -5,9 +5,6 @@ metadata:
   labels:
     {{- include "kube-openid-connect.labels" . | nindent 4 }}
 spec:
-  {{- if not .Values.autoscaling.enabled }}
-  replicas: {{ .Values.replicaCount }}
-  {{- end }}
   selector:
     matchLabels:
       {{- include "kube-openid-connect.selectorLabels" . | nindent 6 }}
@@ -33,6 +30,11 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env:
+          - name: TZ
+            value: {{ .Values.TimeZone }}
+          - name: DEBUG
+            value: {{ .Values.debug }}
           envFrom:
             - configMapRef:
                 name: {{ include "kube-openid-connect.fullname" . }}-config
@@ -46,7 +48,7 @@ spec:
               port: http
           readinessProbe:
             httpGet:
-              path: /
+              path: /health
               port: http
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
