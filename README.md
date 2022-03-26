@@ -6,10 +6,11 @@ This repository contains [Helm](https://helm.sh) charts for various projects
 
 * [Trivy Image Validator Admission Controller](charts/trivy-image-validator/) - :warning: Deprecated
 * [Trivy Scanner Operator](charts/trivy-scanner/) - :warning: Deprecated
-* [Trivy Operator](charts/trivy-operator/)
 * [PushProx](charts/PushProx)
 * [Permission Manager](charts/permission-manager/)
 * [kuberos](charts/kuberos/)
+* [Trivy Operator](charts/trivy-operator/)
+* [kube-openid-connect](charts/kube-openid-connect/)
 
 ## Usage
 
