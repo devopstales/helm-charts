@@ -7,10 +7,11 @@ This repository contains [Helm](https://helm.sh) charts for various projects
 
 * [Trivy Image Validator Admission Controller](https://github.com/devopstales/helm-charts/tree/main/charts/trivy-image-validator/) - :warning: Deprecate
 * [Trivy Scanner Operator](https://github.com/devopstales/helm-charts/tree/main/charts/trivy-scanner/) - :warning: Deprecated
-* [Trivy Operator](https://github.com/devopstales/helm-charts/tree/main/charts/trivy-operator/)
 * [PushProx](https://github.com/devopstales/helm-charts/tree/main/charts/PushProx/)
 * [Permission Manager](https://github.com/devopstales/helm-charts/tree/main/charts/permission-manager/)
 * [kuberos](https://github.com/devopstales/helm-charts/tree/main/charts/kuberos/)
+* [Trivy Operator](https://github.com/devopstales/helm-charts/tree/main/charts/trivy-operator/)
+* [kube-openid-connect](https://github.com/devopstales/helm-charts/tree/main/charts/kube-openid-connect/)
 
 ## Usage
 
