@@ -12,6 +12,17 @@ entries:
     urls:
     - https://github.com/devopstales/helm-charts/releases/download/PushProx-0.1.4/PushProx-0.1.4.tgz
     version: 0.1.4
+  kube-openid-connect:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2022-03-26T10:53:44.672173966+01:00"
+    description: A Helm chart for Kubernetes
+    digest: 294a184add655a99ed624956bccc46048a5f9a01571dbed9a061ed3edd127b1d
+    name: kube-openid-connect
+    type: application
+    urls:
+    - https://github.com/devopstales/helm-charts/releases/download/kube-openid-connect-1/kube-openid-connect-1.tgz
+    version: "1"
   kuberos:
   - apiVersion: v1
     appVersion: "2018-07-03"
@@ -49,6 +60,16 @@ entries:
     urls:
     - https://github.com/devopstales/helm-charts/releases/download/permission-manager-1.7.1-rc1/permission-manager-1.7.1-rc1.tgz
     version: 1.7.1-rc1
+  - apiVersion: v2
+    appVersion: 1.7.1-rc1
+    created: "2022-03-26T10:53:44.877023571+01:00"
+    description: Web UI for ServiceAccount RBAC manager
+    digest: d3fd33167b43392970be27cd16ecfc9de7e7dc9e084d46d8735529710ccfec45
+    name: permission-manager
+    type: application
+    urls:
+    - https://github.com/devopstales/helm-charts/releases/download/permission-manager-1.7.1-2/permission-manager-1.7.1-2.tgz
+    version: 1.7.1-2
   trivy-image-validator:
   - apiVersion: v2
     appVersion: 1.16.0
@@ -92,6 +113,27 @@ entries:
     - https://github.com/devopstales/helm-charts/releases/download/trivy-image-validator-0.1.0/trivy-image-validator-0.1.0.tgz
     version: 0.1.0
   trivy-operator:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2022-03-26T10:53:45.06342478+01:00"
+    description: A Helm chart for trivy-operator
+    digest: b5ca09f038fb096657f9a959a1c4eac7d331637d9b3778ef2cfff824cc0cacd7
+    home: https://github.com/devopstales/trivy-operator
+    icon: https://github.com/devopstales/helm-charts/raw/main/icons/trivy.png
+    keywords:
+    - Trivy
+    - Admission Controller
+    - Operator
+    - Image Secutity
+    kubeVersion: '>=1.19.x-0'
+    name: trivy-operator
+    sources:
+    - https://github.com/devopstales/trivy-operator
+    - https://github.com/devopstales/helm-charts
+    type: application
+    urls:
+    - https://github.com/devopstales/helm-charts/releases/download/trivy-operator-2.3.2/trivy-operator-2.3.2.tgz
+    version: 2.3.2
   - apiVersion: v2
     appVersion: 1.16.0
     created: "2022-02-10T09:41:16.533892+01:00"
@@ -259,4 +301,4 @@ entries:
     urls:
     - https://github.com/devopstales/helm-charts/releases/download/trivy-scanner-0.1.0/trivy-scanner-0.1.0.tgz
     version: 0.1.0
-generated: "2022-02-10T09:41:16.534019+01:00"
+generated: "2022-03-26T10:53:45.063700227+01:00"
