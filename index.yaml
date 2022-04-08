@@ -14,6 +14,16 @@ entries:
     version: 0.1.4
   kube-openid-connect:
   - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2022-04-08T18:45:42.50369704+02:00"
+    description: A Helm chart for Kubernetes
+    digest: 9a270e8adf15eba4fd698b5acaa93b4eec913ca0c804093c245bb4949c4dac67
+    name: kube-openid-connect
+    type: application
+    urls:
+    - https://github.com/devopstales/helm-charts/releases/download/kube-openid-connect-1.1.0/kube-openid-connect-1.1.0.tgz
+    version: 1.1.0
+  - apiVersion: v2
     appVersion: 1.16.0
     created: "2022-03-26T10:53:44.672173966+01:00"
     description: A Helm chart for Kubernetes
@@ -40,6 +50,16 @@ entries:
     - https://github.com/devopstales/helm-charts/releases/download/kuberos-0.2.1/kuberos-0.2.1.tgz
     version: 0.2.1
   permission-manager:
+  - apiVersion: v2
+    appVersion: 1.7.1-rc1
+    created: "2022-04-08T18:45:42.78851673+02:00"
+    description: Web UI for ServiceAccount RBAC manager
+    digest: 3eb4274a969d551788780161d470db0b407c72130219c939df2c7d69a2a5e868
+    name: permission-manager
+    type: application
+    urls:
+    - https://github.com/devopstales/helm-charts/releases/download/permission-manager-1.8.0/permission-manager-1.8.0.tgz
+    version: 1.8.0
   - apiVersion: v2
     appVersion: 1.7.1-rc1
     created: "2021-11-07T14:05:11.70103679+01:00"
@@ -301,4 +321,4 @@ entries:
     urls:
     - https://github.com/devopstales/helm-charts/releases/download/trivy-scanner-0.1.0/trivy-scanner-0.1.0.tgz
     version: 0.1.0
-generated: "2022-03-26T10:53:45.063700227+01:00"
+generated: "2022-04-08T18:45:42.788759134+02:00"
