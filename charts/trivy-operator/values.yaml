@@ -26,6 +26,9 @@ serviceMonitor:
 
 persistence:
   enabled: true
+  accessMode: "ReadWriteOnce"
+  size: "1Gi"
+  annotations: {}
   ## database data Persistent Volume Storage Class
   ## If defined, storageClassName: <storageClass>
   ## If set to "-", storageClassName: "", which disables dynamic provisioning
@@ -34,14 +37,14 @@ persistence:
   ##   GKE, AWS & OpenStack)
   ##
   # storageClass: "-"
-  accessMode: ReadWriteOnce
-  size: 1Gi
-  annotations: {}
 
 namespaceScanner:
   crontab: "*/5 * * * *"
   namespaceSelector: "trivy-scan"
   clusterWide: false
+
+admissionController:
+  enabled: false
 
 registryAuth:
   enabled: false
@@ -53,3 +56,4 @@ registryAuth:
 githubToken:
   enabled: false
   token: ""
+ 
