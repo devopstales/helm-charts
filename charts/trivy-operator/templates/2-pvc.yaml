@@ -15,9 +15,10 @@ spec:
 {{- else }}
   storageClassName: "{{ .Values.persistence.storageClass }}"
 {{- end }}
+{{- end }}
   accessModes:
     - {{ .Values.persistence.accessMode | quote }}
-  resources: 
-    requests: 
-      storage: {{ .Values.persistence.size }}
+  resources:
+    requests:
+      storage: {{ .Values.persistence.size | quote }}
 {{- end }}
