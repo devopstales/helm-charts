@@ -36,9 +36,9 @@ spec:
           envFrom:
             - secretRef:
               {{- if .Values.config.existingSecret }}
-              name:  {{ .Values.config.existingSecret }}
+                name:  {{ .Values.config.existingSecret }}
               {{- else }}
-              name: {{ include "permission-manager.fullname" . }}
+                name: {{ include "permission-manager.fullname" . }}
               {{- end }}
           ports:
             - name: http
