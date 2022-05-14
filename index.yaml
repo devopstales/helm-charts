@@ -90,6 +90,18 @@ entries:
     urls:
     - https://github.com/devopstales/helm-charts/releases/download/permission-manager-1.7.1-2/permission-manager-1.7.1-2.tgz
     version: 1.7.1-2
+  pushprox:
+  - apiVersion: v1
+    appVersion: 0.1.0
+    created: "2022-05-14T12:43:42.10072+02:00"
+    description: Sets up a deployment of the PushProx proxy and a DaemonSet of PushProx
+      clients.
+    digest: 04dd34a110269b417a38c3c0ca5e684eef3e6bfa90ffec8a790771e0d732c820
+    name: pushprox
+    type: application
+    urls:
+    - https://github.com/devopstales/helm-charts/releases/download/pushprox-0.1.5/pushprox-0.1.5.tgz
+    version: 0.1.5
   trivy-image-validator:
   - apiVersion: v2
     appVersion: 1.16.0
@@ -321,4 +333,4 @@ entries:
     urls:
     - https://github.com/devopstales/helm-charts/releases/download/trivy-scanner-0.1.0/trivy-scanner-0.1.0.tgz
     version: 0.1.0
-generated: "2022-04-08T18:45:42.788759134+02:00"
+generated: "2022-05-14T12:43:42.100759+02:00"
