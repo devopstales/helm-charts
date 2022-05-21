@@ -12,6 +12,16 @@ entries:
     urls:
     - https://github.com/devopstales/helm-charts/releases/download/PushProx-0.1.4/PushProx-0.1.4.tgz
     version: 0.1.4
+  kube-bench-metrics:
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2022-05-21T09:50:54.224099103+02:00"
+    description: A Helm chart for Kubernetes
+    digest: c1eb2ec3734e1706c9bbc080006b8ed1a0ca1d1c4cfa494db9ade88ee1145834
+    name: kube-bench-metrics
+    urls:
+    - https://github.com/devopstales/helm-charts/releases/download/kube-bench-metrics-0.1.0/kube-bench-metrics-0.1.0.tgz
+    version: 0.1.0
   kube-openid-connect:
   - apiVersion: v2
     appVersion: 1.0.0
@@ -333,4 +343,4 @@ entries:
     urls:
     - https://github.com/devopstales/helm-charts/releases/download/trivy-scanner-0.1.0/trivy-scanner-0.1.0.tgz
     version: 0.1.0
-generated: "2022-05-14T12:43:42.100759+02:00"
+generated: "2022-05-21T09:50:54.224341066+02:00"

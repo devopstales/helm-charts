@@ -10,6 +10,7 @@ This repository contains [Helm](https://helm.sh) charts for various projects
 * [PushProx](https://github.com/devopstales/helm-charts/tree/main/charts/PushProx/)
 * [Permission Manager](https://github.com/devopstales/helm-charts/tree/main/charts/permission-manager/)
 * [kuberos](https://github.com/devopstales/helm-charts/tree/main/charts/kuberos/)
+* [kube-bench-metrics](https://github.com/devopstales/helm-charts/tree/main/charts/kube-bench-metrics-0.1.0/)
 * [Trivy Operator](https://github.com/devopstales/helm-charts/tree/main/charts/trivy-operator/)
 * [kube-openid-connect](https://github.com/devopstales/helm-charts/tree/main/charts/kube-openid-connect/)
 
