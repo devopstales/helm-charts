@@ -9,6 +9,7 @@ This repository contains [Helm](https://helm.sh) charts for various projects
 * [PushProx](charts/PushProx)
 * [Permission Manager](charts/permission-manager/)
 * [kuberos](charts/kuberos/)
+* [kube-bench-metrics](charts/kube-bench-metrics/)
 * [Trivy Operator](charts/trivy-operator/)
 * [kube-openid-connect](charts/kube-openid-connect/)
 
