@@ -15,35 +15,38 @@ entries:
   kube-bench-metrics:
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2022-05-21T09:50:54.224099103+02:00"
+    created: "2022-06-30T14:34:16.161650868Z"
     description: A Helm chart for Kubernetes
-    digest: c1eb2ec3734e1706c9bbc080006b8ed1a0ca1d1c4cfa494db9ade88ee1145834
+    digest: 2051b5a9cdbbe38b89592947eda45adc30f01edee78dc881d2a1c68d04b6356a
     name: kube-bench-metrics
     urls:
-    - https://github.com/devopstales/helm-charts/releases/download/kube-bench-metrics-0.1.0/kube-bench-metrics-0.1.0.tgz
+    - https://devopstales.github.io/helm-charts/kube-bench-metrics-0.1.0.tgz
     version: 0.1.0
   kube-openid-connect:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2022-04-08T18:45:42.50369704+02:00"
+    created: "2022-06-30T14:34:16.162682175Z"
     description: A Helm chart for Kubernetes
-    digest: 9a270e8adf15eba4fd698b5acaa93b4eec913ca0c804093c245bb4949c4dac67
+    digest: f5b3704d7e23bdbdede2ab865e6ab8fc74b74461400cea8c0e14900bb6c2e4b2
     name: kube-openid-connect
     type: application
     urls:
-    - https://github.com/devopstales/helm-charts/releases/download/kube-openid-connect-1.1.0/kube-openid-connect-1.1.0.tgz
+    - https://devopstales.github.io/helm-charts/kube-openid-connect-1.1.0.tgz
     version: 1.1.0
-  - apiVersion: v2
-    appVersion: 1.16.0
-    created: "2022-03-26T10:53:44.672173966+01:00"
-    description: A Helm chart for Kubernetes
-    digest: 294a184add655a99ed624956bccc46048a5f9a01571dbed9a061ed3edd127b1d
-    name: kube-openid-connect
-    type: application
-    urls:
-    - https://github.com/devopstales/helm-charts/releases/download/kube-openid-connect-1/kube-openid-connect-1.tgz
-    version: "1"
   kuberos:
+  - apiVersion: v2
+    appVersion: "2018-07-03"
+    created: "2022-06-30T14:34:16.163215378Z"
+    description: An OIDC authentication helper for Kubernetes
+    digest: e3be038db198e96d907c100bebfe28e48cb20960ec56c2de1dc1286b1ad9b5a3
+    home: https://github.com/negz/kuberos
+    name: kuberos
+    sources:
+    - https://github.com/negz/kuberos
+    - https://github.com/devopstales/helm-charts
+    urls:
+    - https://devopstales.github.io/helm-charts/kuberos-0.2.2.tgz
+    version: 0.2.2
   - apiVersion: v1
     appVersion: "2018-07-03"
     created: "2022-01-30T09:56:19.685124+01:00"
@@ -62,29 +65,19 @@ entries:
   permission-manager:
   - apiVersion: v2
     appVersion: 1.7.1-rc1
-    created: "2022-04-08T18:45:42.78851673+02:00"
+    created: "2022-06-30T14:34:16.163796982Z"
     description: Web UI for ServiceAccount RBAC manager
-    digest: 3eb4274a969d551788780161d470db0b407c72130219c939df2c7d69a2a5e868
+    digest: 06519535fc942d83f957b771c7ac9e5a9fd6c1e908ea438fdc7bcf6c725a3da0
     name: permission-manager
     type: application
     urls:
-    - https://github.com/devopstales/helm-charts/releases/download/permission-manager-1.8.0/permission-manager-1.8.0.tgz
+    - https://devopstales.github.io/helm-charts/permission-manager-1.8.0.tgz
     version: 1.8.0
   - apiVersion: v2
     appVersion: 1.7.1-rc1
     created: "2021-11-07T14:05:11.70103679+01:00"
     description: A Helm chart for Kubernetes
     digest: 52863b2734eda6fcac5b356c47caf7aaada2e46d4db824c4dfd462275c8c44ab
-    name: permission-manager
-    type: application
-    urls:
-    - https://github.com/devopstales/helm-charts/releases/download/permission-manager-1.7.1-rc1/permission-manager-1.7.1-rc1.tgz
-    version: 1.7.1-rc1
-  - apiVersion: v2
-    appVersion: 1.7.1-rc1
-    created: "2022-02-07T08:38:02.96753+01:00"
-    description: Web UI for ServiceAccount RBAC manager
-    digest: cf3f9c952b11ff44edd9c5841907acf56d3ad8ef20f46a3a6815d9d1d5670f8c
     name: permission-manager
     type: application
     urls:
@@ -101,6 +94,17 @@ entries:
     - https://github.com/devopstales/helm-charts/releases/download/permission-manager-1.7.1-2/permission-manager-1.7.1-2.tgz
     version: 1.7.1-2
   pushprox:
+  - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2022-06-30T14:34:16.164449786Z"
+    description: Sets up a deployment of the PushProx proxy and a DaemonSet of PushProx
+      clients.
+    digest: e0758af5fa5143373045a87953c3c73ea6b2237dd8c746dc922d9670b9a480a0
+    name: pushprox
+    type: application
+    urls:
+    - https://devopstales.github.io/helm-charts/pushprox-0.1.6.tgz
+    version: 0.1.6
   - apiVersion: v1
     appVersion: 0.1.0
     created: "2022-05-14T12:43:42.10072+02:00"
@@ -115,14 +119,14 @@ entries:
   trivy-image-validator:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2021-12-02T11:38:01.831607+01:00"
+    created: "2022-06-30T14:34:16.164862689Z"
     deprecated: true
     description: A Helm chart for trivy-image-validator Admission Controller
-    digest: 7ac5c09e0fda7630f7386b85ef7038f7f100c5574007e652576df38607857d92
+    digest: d6e2b1c9aff875676d6196b40859e116a462add859cf12ab7e8bd804ea7f547f
     name: trivy-image-validator
     type: application
     urls:
-    - https://github.com/devopstales/helm-charts/releases/download/trivy-image-validator-1.0.2/trivy-image-validator-1.0.2.tgz
+    - https://devopstales.github.io/helm-charts/trivy-image-validator-1.0.2.tgz
     version: 1.0.2
   - apiVersion: v2
     appVersion: 1.16.0
@@ -155,6 +159,27 @@ entries:
     - https://github.com/devopstales/helm-charts/releases/download/trivy-image-validator-0.1.0/trivy-image-validator-0.1.0.tgz
     version: 0.1.0
   trivy-operator:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2022-06-30T14:34:16.165585294Z"
+    description: A Helm chart for trivy-operator
+    digest: e49a93f6204999b456024481a4f39c1b0b7246a4944e74cdbb260d1cbb2c0e9c
+    home: https://devopstales.github.io/trivy-operator/
+    icon: https://github.com/devopstales/helm-charts/raw/main/icons/trivy.png
+    keywords:
+    - Trivy
+    - Admission Controller
+    - Operator
+    - Image Secutity
+    kubeVersion: '>=1.19.x-0'
+    name: trivy-operator
+    sources:
+    - https://github.com/devopstales/trivy-operator
+    - https://github.com/devopstales/helm-charts
+    type: application
+    urls:
+    - https://devopstales.github.io/helm-charts/trivy-operator-2.4.0.tgz
+    version: 2.4.0
   - apiVersion: v2
     appVersion: 1.16.0
     created: "2022-03-26T10:53:45.06342478+01:00"
@@ -197,27 +222,6 @@ entries:
     urls:
     - https://github.com/devopstales/helm-charts/releases/download/trivy-operator-2.3.1/trivy-operator-2.3.1.tgz
     version: 2.3.1
-  - apiVersion: v2
-    appVersion: 1.16.0
-    created: "2022-02-04T14:22:47.801005+01:00"
-    description: A Helm chart for trivy-operator
-    digest: e5dec73e939f8116917fb9d8c9d85f1f8ea7b0d5a90726fd877538d01413bb7c
-    home: https://github.com/devopstales/trivy-operator
-    icon: https://github.com/devopstales/helm-charts/raw/main/icons/trivy.png
-    keywords:
-    - Trivy
-    - Admission Controller
-    - Operator
-    - Image Secutity
-    kubeVersion: '>=1.19.x-0'
-    name: trivy-operator
-    sources:
-    - https://github.com/devopstales/trivy-operator
-    - https://github.com/devopstales/helm-charts
-    type: application
-    urls:
-    - https://github.com/devopstales/helm-charts/releases/download/trivy-operator-2.3/trivy-operator-2.3.tgz
-    version: "2.3"
   - apiVersion: v2
     appVersion: 1.16.0
     created: "2021-12-27T12:30:22.635602+01:00"
@@ -304,14 +308,14 @@ entries:
   trivy-scanner:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2021-12-02T11:38:02.202283+01:00"
+    created: "2022-06-30T14:34:16.165956196Z"
     deprecated: true
     description: A Helm chart for trivy-scanner
-    digest: ed3a2ee869fc9fc694bb3c0ced4cc986d78e559a473b01f28000debee3fff83b
+    digest: efeacd38e8b8bcbfaee4d821708929d6889318e2b7aa5ab736e0cddd41d7e3c0
     name: trivy-scanner
     type: application
     urls:
-    - https://github.com/devopstales/helm-charts/releases/download/trivy-scanner-1.0.2/trivy-scanner-1.0.2.tgz
+    - https://devopstales.github.io/helm-charts/trivy-scanner-1.0.2.tgz
     version: 1.0.2
   - apiVersion: v2
     appVersion: 1.16.0
@@ -343,4 +347,4 @@ entries:
     urls:
     - https://github.com/devopstales/helm-charts/releases/download/trivy-scanner-0.1.0/trivy-scanner-0.1.0.tgz
     version: 0.1.0
-generated: "2022-05-21T09:50:54.224341066+02:00"
+generated: "2022-06-30T14:34:16.160085458Z"
