@@ -1,9 +1,10 @@
 image:
   repository: devopstales/trivy-operator
   pullPolicy: Always
-  tag: "2.3"
+  tag: "2.4"
 
 log_level: "INFO"
+# INFO, HIGH, DEBUG
 
 imagePullSecrets: []
 podSecurityContext:
@@ -14,6 +15,9 @@ serviceAccount:
   create: true
   annotations: {}
   name: "trivy-operator"
+
+cache:
+  enabled: false
 
 monitoring:
   port: "9115"
@@ -56,4 +60,4 @@ registryAuth:
 githubToken:
   enabled: false
   token: ""
- 
+
