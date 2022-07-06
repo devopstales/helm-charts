@@ -15,9 +15,9 @@ entries:
   kube-bench-metrics:
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2022-06-30T14:34:16.161650868Z"
+    created: "2022-07-06T14:13:57.416113181Z"
     description: A Helm chart for Kubernetes
-    digest: 2051b5a9cdbbe38b89592947eda45adc30f01edee78dc881d2a1c68d04b6356a
+    digest: daf70556c3ba4b1ed9635350457b000627ca90b67d13fa1cc038f5842d000303
     name: kube-bench-metrics
     urls:
     - https://devopstales.github.io/helm-charts/kube-bench-metrics-0.1.0.tgz
@@ -25,9 +25,9 @@ entries:
   kube-openid-connect:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2022-06-30T14:34:16.162682175Z"
+    created: "2022-07-06T14:13:57.416753881Z"
     description: A Helm chart for Kubernetes
-    digest: f5b3704d7e23bdbdede2ab865e6ab8fc74b74461400cea8c0e14900bb6c2e4b2
+    digest: d02d9e5ea047d8c50a5cb58c12f0c39137ed7b885654dd99954adf13603b79de
     name: kube-openid-connect
     type: application
     urls:
@@ -36,9 +36,9 @@ entries:
   kuberos:
   - apiVersion: v2
     appVersion: "2018-07-03"
-    created: "2022-06-30T14:34:16.163215378Z"
+    created: "2022-07-06T14:13:57.417285182Z"
     description: An OIDC authentication helper for Kubernetes
-    digest: e3be038db198e96d907c100bebfe28e48cb20960ec56c2de1dc1286b1ad9b5a3
+    digest: 9f8d8a47b63f31e7c8951f2ae1519bf8f661b3603c187da66cb5a08f93f6f515
     home: https://github.com/negz/kuberos
     name: kuberos
     sources:
@@ -62,12 +62,46 @@ entries:
     urls:
     - https://github.com/devopstales/helm-charts/releases/download/kuberos-0.2.1/kuberos-0.2.1.tgz
     version: 0.2.1
+  kyverno:
+  - annotations:
+      artifacthub.io/changes: |
+        - kind: changed
+          description: Exclude Kyverno namespace by default
+      artifacthub.io/links: |
+        - name: Documentation
+          url: https://kyverno.io/docs
+      artifacthub.io/operator: "false"
+      artifacthub.io/prerelease: "false"
+    apiVersion: v2
+    appVersion: v1.7.1
+    created: "2022-07-06T14:13:57.420290083Z"
+    description: Kubernetes Native Policy Management
+    digest: 677ded2ca4c0c401ae6eb1312c4b265504fee5eafeef4933c5bd3ff73c08f5db
+    home: https://kyverno.io/
+    icon: https://github.com/kyverno/kyverno/raw/main/img/logo.png
+    keywords:
+    - kubernetes
+    - nirmata
+    - policy agent
+    - validating webhook
+    - admissions controller
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - name: Nirmata
+      url: https://kyverno.io/
+    name: kyverno
+    sources:
+    - https://github.com/kyverno/kyverno
+    type: application
+    urls:
+    - https://devopstales.github.io/helm-charts/kyverno-v2.5.1.tgz
+    version: v2.5.1
   permission-manager:
   - apiVersion: v2
     appVersion: 1.7.1-rc1
-    created: "2022-06-30T14:34:16.163796982Z"
+    created: "2022-07-06T14:13:57.420929784Z"
     description: Web UI for ServiceAccount RBAC manager
-    digest: 06519535fc942d83f957b771c7ac9e5a9fd6c1e908ea438fdc7bcf6c725a3da0
+    digest: 0faaaface817f02518cd421369823b191541519002c3d65ce93e31be6200d2c3
     name: permission-manager
     type: application
     urls:
@@ -96,10 +130,10 @@ entries:
   pushprox:
   - apiVersion: v2
     appVersion: 0.1.0
-    created: "2022-06-30T14:34:16.164449786Z"
+    created: "2022-07-06T14:13:57.421670984Z"
     description: Sets up a deployment of the PushProx proxy and a DaemonSet of PushProx
       clients.
-    digest: e0758af5fa5143373045a87953c3c73ea6b2237dd8c746dc922d9670b9a480a0
+    digest: cf16ca54ae6a408583fc4e478641e88cfd4e010d86e25f7195f326cfbf7a180d
     name: pushprox
     type: application
     urls:
@@ -119,10 +153,10 @@ entries:
   trivy-image-validator:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-06-30T14:34:16.164862689Z"
+    created: "2022-07-06T14:13:57.423204685Z"
     deprecated: true
     description: A Helm chart for trivy-image-validator Admission Controller
-    digest: d6e2b1c9aff875676d6196b40859e116a462add859cf12ab7e8bd804ea7f547f
+    digest: db9b151c97e9c5d26667bd1bbda18c136541a06ecf3d5d231196edd5651b379e
     name: trivy-image-validator
     type: application
     urls:
@@ -159,6 +193,27 @@ entries:
     - https://github.com/devopstales/helm-charts/releases/download/trivy-image-validator-0.1.0/trivy-image-validator-0.1.0.tgz
     version: 0.1.0
   trivy-operator:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2022-07-06T14:13:57.424566986Z"
+    description: A Helm chart for trivy-operator
+    digest: e4dc4c94b05bd48865460bb360118464ac76d09877db2df2776930b5e855c0f9
+    home: https://devopstales.github.io/trivy-operator/
+    icon: https://github.com/devopstales/helm-charts/raw/main/icons/trivy.png
+    keywords:
+    - Trivy
+    - Admission Controller
+    - Operator
+    - Image Secutity
+    kubeVersion: '>=1.19.x-0'
+    name: trivy-operator
+    sources:
+    - https://github.com/devopstales/trivy-operator
+    - https://github.com/devopstales/helm-charts
+    type: application
+    urls:
+    - https://devopstales.github.io/helm-charts/trivy-operator-2.4.1.tgz
+    version: 2.4.1
   - apiVersion: v2
     appVersion: 1.16.0
     created: "2022-06-30T14:34:16.165585294Z"
@@ -308,10 +363,10 @@ entries:
   trivy-scanner:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-06-30T14:34:16.165956196Z"
+    created: "2022-07-06T14:13:57.425010986Z"
     deprecated: true
     description: A Helm chart for trivy-scanner
-    digest: efeacd38e8b8bcbfaee4d821708929d6889318e2b7aa5ab736e0cddd41d7e3c0
+    digest: 9a3a3723efdb1ab7577acccfbf9634ad7d575433fa0a641b213cd0c3ad0c6532
     name: trivy-scanner
     type: application
     urls:
@@ -347,4 +402,4 @@ entries:
     urls:
     - https://github.com/devopstales/helm-charts/releases/download/trivy-scanner-0.1.0/trivy-scanner-0.1.0.tgz
     version: 0.1.0
-generated: "2022-06-30T14:34:16.160085458Z"
+generated: "2022-07-06T14:13:57.415128681Z"
