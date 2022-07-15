@@ -30,6 +30,26 @@ serviceMonitor:
   namespace: "kube-system"
   labels:
     release: prometheus
+  # Scrape interval. If not set, the Prometheus default scrape interval is used.
+  #
+  interval: 60s
+  scrapeTimeout: 30s
+  ## RelabelConfigs to apply to samples before scraping
+  ## ref: https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/api.md#relabelconfig
+  ##
+  relabelings: []
+  #  - sourceLabels: ["__address__"]
+  #    action: replace
+  #    regex: (.*)
+  #    replacement: "develop"
+  #    targetLabel: account
+  metricRelabelings: []
+  #  - sourceLabels: [prometheus_replica]
+  #    regex: (.*)
+  #    targetLabel: another_prometheus_replica
+  #    action: replace
+  #  - regex: prometheus_replica
+  #    action: labeldrop
 
 persistence:
   enabled: true

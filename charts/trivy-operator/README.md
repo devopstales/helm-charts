@@ -19,6 +19,10 @@ The following tables lists configurable parameters of the trivy-operator chart a
 | monitoring.port                     | prometheus endpoint port | 9115 |
 | serviceMonitor.enabled              | enable serviceMonitor object creation | false |
 | serviceMonitor.namespace            | where to create serviceMonitor object | kube-system |
+| serviceMonitor.interval             | set interval to serviceMonitor | 60s |
+| serviceMonitor.scrapeTimeout        | set scrapeTimeout to serviceMonitor | 30s |
+| serviceMonitor.relabelings          | set relabelings to serviceMonitor | [] |
+| serviceMonitor.metricRelabelings    | set metricRelabelings to serviceMonitor | [] |
 | persistence.enabled                 | enable pv to store trivy database | true |
 | persistence.size                    | pv size | 1Gi |
 | persistence.storageClass            | storageClass | Not defined |
@@ -32,4 +36,3 @@ The following tables lists configurable parameters of the trivy-operator chart a
 | registryAuth.password               | password for authentication |
 | githubToken.enabled                 | Enable githubToken usage for trivy database update | false |
 | githubToken.token                   | githubToken value | "" |
-
