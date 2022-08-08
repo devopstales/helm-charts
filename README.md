@@ -13,6 +13,7 @@ This repository contains [Helm](https://helm.sh) charts for various projects
 * [kube-bench-metrics](https://github.com/devopstales/helm-charts/tree/main/charts/kube-bench-metrics-0.1.0/)
 * [Trivy Operator](https://github.com/devopstales/helm-charts/tree/main/charts/trivy-operator/)
 * [kube-openid-connect](https://github.com/devopstales/helm-charts/tree/main/charts/kube-openid-connect/)
+* [k8s-logrotate](https://github.com/devopstales/helm-charts/tree/main/charts/k8s-logrotate/)
 
 ## Usage
 
