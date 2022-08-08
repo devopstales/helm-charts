@@ -12,6 +12,7 @@ This repository contains [Helm](https://helm.sh) charts for various projects
 * [kube-bench-metrics](charts/kube-bench-metrics/)
 * [Trivy Operator](charts/trivy-operator/)
 * [kube-openid-connect](charts/kube-openid-connect/)
+* [k8s-logrotate](charts/k8s-logrotate)
 
 ## Usage
 

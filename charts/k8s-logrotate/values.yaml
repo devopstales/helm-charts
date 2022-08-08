@@ -1,0 +1,43 @@
+image:
+  name: devopstales/k8s-logrotate
+  tag: "1.0"
+  pullPolicy: Always
+
+# nameOverride: "k8s-logrotate"
+
+rbac:
+  create: false
+  serviceAccount: ""
+
+# securityContext:
+#   privileged: true
+
+cronSchedule: "0 */12 * * *"
+
+tolerations: {}
+# - effect: NoSchedule
+#   operator: Exists
+
+logrotateConfig: |-
+  /var/log/containers/*.log {
+    rotate 1
+    copytruncate
+    missingok
+    notifempty
+    compress
+    maxsize 100M
+    daily
+    create 1234 dummy dummy
+  }
+
+# For docker
+#  /var/lib/docker/containers/*/*.log {
+#    rotate 1
+#    copytruncate
+#    missingok
+#    notifempty
+#    compress
+#    maxsize 100M
+#    daily
+#    create 1234 dummy dummy
+#  }

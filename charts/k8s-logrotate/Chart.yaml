@@ -1,0 +1,10 @@
+apiVersion: v1
+name: k8s-logrotate
+description: logrotate chart that runs on kubernetes
+version: 1.0.0
+keywords:
+  - logrotate
+  - kubernetes
+home: https://github.com/devopstales/k8s-logrotate
+maintainers:
+- name: devopstales

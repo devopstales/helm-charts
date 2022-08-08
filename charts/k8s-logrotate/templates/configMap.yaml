@@ -1,0 +1,13 @@
+---
+apiVersion: v1
+kind: List
+items:
+- apiVersion: v1
+  kind: ConfigMap
+  metadata:
+    labels:
+{{ include "logrotate.labels.chart" . | indent 6 }}
+    name: {{ template "logrotate.name" . }}
+  data:
+    k8s-logrotate.conf:  |-
+{{ .Values.logrotateConfig | indent 6 }}
