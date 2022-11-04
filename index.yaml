@@ -14,9 +14,9 @@ entries:
     version: 0.1.4
   k8s-logrotate:
   - apiVersion: v1
-    created: "2022-08-08T13:42:16.784901814Z"
+    created: "2022-11-04T07:30:25.590164393Z"
     description: logrotate chart that runs on kubernetes
-    digest: 326bf23f4edce9deb7e72a1154f92a24725c6613075457dd29e476de354b4a99
+    digest: 65bd5fb3895a3df21e188dff6c2772c3fb59163375e660c2409ffc026da2ef69
     home: https://github.com/devopstales/k8s-logrotate
     keywords:
     - logrotate
@@ -30,9 +30,9 @@ entries:
   kube-bench-metrics:
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2022-08-08T13:42:16.785482011Z"
+    created: "2022-11-04T07:30:25.591559692Z"
     description: A Helm chart for Kubernetes
-    digest: 567a465f519c86d8d554b64e5b58b415e6b2104ff8f4ffda49a74438bd8b4851
+    digest: 411135b606e4615eba351471e3f4a504aaed17563a9ce389271b4bb0a8df2555
     name: kube-bench-metrics
     urls:
     - https://devopstales.github.io/helm-charts/kube-bench-metrics-0.1.0.tgz
@@ -40,9 +40,9 @@ entries:
   kube-openid-connect:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2022-08-08T13:42:16.786423208Z"
+    created: "2022-11-04T07:30:25.592424553Z"
     description: A Helm chart for Kubernetes
-    digest: 875764dbac87c7be1a33c986a96a93afb7f781041185518ca79f042710bad663
+    digest: 2a88830ad3684863a69e5c99bb01fe566cc6bbaa276b4260573394559b97ef42
     name: kube-openid-connect
     type: application
     urls:
@@ -51,9 +51,9 @@ entries:
   kuberos:
   - apiVersion: v2
     appVersion: "2018-07-03"
-    created: "2022-08-08T13:42:16.786956706Z"
+    created: "2022-11-04T07:30:25.593025796Z"
     description: An OIDC authentication helper for Kubernetes
-    digest: 98e7e629f870818b8ae41d9cea92ac5440b8f0eef72af35a64cffd8717ff09e5
+    digest: e1255e09358aa0b79078d554a8cf4b8481740309c21873e1d278d7ca477ac13f
     home: https://github.com/negz/kuberos
     name: kuberos
     sources:
@@ -89,9 +89,9 @@ entries:
       artifacthub.io/prerelease: "false"
     apiVersion: v2
     appVersion: v1.7.1
-    created: "2022-08-08T13:42:16.790612892Z"
+    created: "2022-11-04T07:30:25.596115015Z"
     description: Kubernetes Native Policy Management
-    digest: 8dc102727e15aba21e472a93c637d734e31f23502df56de19dd14b22135910f2
+    digest: 2a2fa85e23b6649276c201f7fa04aebae76abd587d3f9983d58293a9276b335c
     home: https://kyverno.io/
     icon: https://github.com/kyverno/kyverno/raw/main/img/logo.png
     keywords:
@@ -114,9 +114,9 @@ entries:
   permission-manager:
   - apiVersion: v2
     appVersion: 1.7.1-rc1
-    created: "2022-08-08T13:42:16.791367889Z"
+    created: "2022-11-04T07:30:25.596782162Z"
     description: Web UI for ServiceAccount RBAC manager
-    digest: 81c0530651207940b25a53c9f9215be0213c5c1988c24ffdbb8d31c61f5ffdcc
+    digest: 1ac3a83581c529a13be093f475ec4b6fac649fc78843b3e45550a64dedf19ceb
     name: permission-manager
     type: application
     urls:
@@ -145,10 +145,10 @@ entries:
   pushprox:
   - apiVersion: v2
     appVersion: 0.1.0
-    created: "2022-08-08T13:42:16.792166286Z"
+    created: "2022-11-04T07:30:25.597543416Z"
     description: Sets up a deployment of the PushProx proxy and a DaemonSet of PushProx
       clients.
-    digest: 1b25e4f1aff81085d7b41f3e2e1dd90e108de807803d6b719bc0c7f5bf6a0028
+    digest: c9773cc59f71885734991283043c9dea131517f82d65c879857d635712dab420
     name: pushprox
     type: application
     urls:
@@ -168,10 +168,10 @@ entries:
   trivy-image-validator:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-08-08T13:42:16.792736383Z"
+    created: "2022-11-04T07:30:25.598557088Z"
     deprecated: true
     description: A Helm chart for trivy-image-validator Admission Controller
-    digest: 76f0a66807fc860df3441a3fd873e2835deda8429957ef507d6d0a13654820e6
+    digest: e3451982ec65495147a38c84f51e0dbbd7525657510031a7807fa0386deb4d6f
     name: trivy-image-validator
     type: application
     urls:
@@ -208,6 +208,29 @@ entries:
     - https://github.com/devopstales/helm-charts/releases/download/trivy-image-validator-0.1.0/trivy-image-validator-0.1.0.tgz
     version: 0.1.0
   trivy-operator:
+  - apiVersion: v2
+    appVersion: 0.23.0
+    created: "2022-11-04T07:30:25.600715641Z"
+    description: This chart deploys an operator that default every 5 minutes execute
+      a scan script. It will get image list from all namespaces with the label `trivy-scan=true`,
+      and then scan this images with trivy, finally we will get metrics on `http://[pod-ip]:9115/metrics`
+    digest: 47928da4896df66425acb982c84d72a264ea0bfc30aee63ec6a9ec9f80b7744e
+    home: https://github.com/devopstales/trivy-operator
+    icon: https://github.com/devopstales/helm-charts/raw/main/icons/trivy.png
+    keywords:
+    - Trivy
+    - Admission Controller
+    - Operator
+    - Image Secutity
+    kubeVersion: '>=1.19.x-0'
+    name: trivy-operator
+    sources:
+    - https://github.com/devopstales/trivy-operator
+    - https://github.com/devopstales/helm-charts
+    type: application
+    urls:
+    - https://devopstales.github.io/helm-charts/trivy-operator-2.5.0.tgz
+    version: 2.5.0
   - apiVersion: v2
     appVersion: 1.16.0
     created: "2022-08-08T13:42:16.793838079Z"
@@ -420,10 +443,10 @@ entries:
   trivy-scanner:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-08-08T13:42:16.794324777Z"
+    created: "2022-11-04T07:30:25.601322485Z"
     deprecated: true
     description: A Helm chart for trivy-scanner
-    digest: 19ca8ecfb5c30042056d9ef845e99f668a663cabb4b5b925b765caa293c1f95a
+    digest: e5221edce930ad6a8ad4034a9a5bf41ae5d22a1063ec99d1c79e0d1cf782455b
     name: trivy-scanner
     type: application
     urls:
@@ -459,4 +482,4 @@ entries:
     urls:
     - https://github.com/devopstales/helm-charts/releases/download/trivy-scanner-0.1.0/trivy-scanner-0.1.0.tgz
     version: 0.1.0
-generated: "2022-08-08T13:42:16.783972517Z"
+generated: "2022-11-04T07:30:25.589481644Z"
