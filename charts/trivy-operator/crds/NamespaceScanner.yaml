@@ -35,12 +35,42 @@ spec:
       openAPIV3Schema:
         properties:
           crontab:
+            description: Crontab format expression for scheduling scans.
             pattern: ^(\d+|\*)(/\d+)?(\s+(\d+|\*)(/\d+)?){4}$
             type: string
           namespace_selector:
+            description: NamespaceSelector selects the namespaces to scan
+              images.
             type: string
           clusterWide:
-            type: string
+            description: Selector for cluster wide scan.
+            type: boolean
+          integrations:
+            type: object
+            properties:
+              policyreport:
+                description: Selector to enable policy report object creation
+                  and integration wit plicy-reporter.
+                type: boolean
+              defectdojo:
+                description: DefectDojo integration options
+                type: object
+                properties:
+                  host:
+                    description: URL of the DefectDojo server.
+                    type: string
+                  api_key:
+                    description: Api key for DefectDojo api authentication.
+                    type: string
+                  k8s-cluster-name:
+                    description: Name of the Kubernetes Cluster in defectdojo.
+                    type: string
+          image_pull_secrets:
+            description: List of image pull secret names in the operator's
+              namespace for image pulls.
+            type: array
+            items:
+              type: string
           spec:
             type: object
             x-kubernetes-preserve-unknown-fields: true
