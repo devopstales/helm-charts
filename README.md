@@ -29,7 +29,7 @@ helm repo add devopstales https://devopstales.github.io/helm-charts
 You can then run `helm search repo devopstales` to see the charts.
 
 <!-- Keep full URL links to repo files because this README syncs from main to gh-pages.  -->
-Chart documentation is available in [charts directory](https://github.com/devopstales/helm-charts/blob/main/charts/README.md).
+Chart documentation is available in charts directories.
 
 ## Contributing
 
