@@ -1,0 +1,3 @@
+url: "https:// devopstales.github.io/helm-charts/"
+plugins:
+  - jekyll-sitemap
