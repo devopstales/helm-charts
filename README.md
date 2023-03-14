@@ -5,15 +5,16 @@
 
 This repository contains [Helm](https://helm.sh) charts for various projects
 
-* [Trivy Image Validator Admission Controller](https://github.com/devopstales/helm-charts/tree/main/charts/trivy-image-validator/) - :warning: Deprecate
-* [Trivy Scanner Operator](https://github.com/devopstales/helm-charts/tree/main/charts/trivy-scanner/) - :warning: Deprecated
+* [Trivy Operator](https://github.com/devopstales/helm-charts/tree/main/charts/trivy-operator/)
+* [KubeDash](https://github.com/devopstales/helm-charts/tree/main/charts/kubedash/) - Kubernetes Dashboard
 * [PushProx](https://github.com/devopstales/helm-charts/tree/main/charts/PushProx/)
 * [Permission Manager](https://github.com/devopstales/helm-charts/tree/main/charts/permission-manager/)
 * [kuberos](https://github.com/devopstales/helm-charts/tree/main/charts/kuberos/)
 * [kube-bench-metrics](https://github.com/devopstales/helm-charts/tree/main/charts/kube-bench-metrics-0.1.0/)
-* [Trivy Operator](https://github.com/devopstales/helm-charts/tree/main/charts/trivy-operator/)
 * [kube-openid-connect](https://github.com/devopstales/helm-charts/tree/main/charts/kube-openid-connect/)
-* [k8s-logrotate](https://github.com/devopstales/helm-charts/tree/main/charts/k8s-logrotate/)
+* [k8s-logrotate](https://github.com/devopstales/helm-charts/tree/main/charts/k8s-logrotate/) - :warning: Deprecate
+* [Trivy Image Validator Admission Controller](https://github.com/devopstales/helm-charts/tree/main/charts/trivy-image-validator/) - :warning: Deprecate
+* [Trivy Scanner Operator](https://github.com/devopstales/helm-charts/tree/main/charts/trivy-scanner/) - :warning: Deprecated
 
 ## Usage
 
