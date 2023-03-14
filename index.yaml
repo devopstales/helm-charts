@@ -14,9 +14,9 @@ entries:
     version: 0.1.4
   k8s-logrotate:
   - apiVersion: v1
-    created: "2023-01-28T09:04:04.202241323Z"
+    created: "2023-03-14T10:46:55.602425692Z"
     description: logrotate chart that runs on kubernetes
-    digest: 30c138fb69e1cad928ba3c3ff323072fa9f4af6e11d4ac72a8a13eb2b3e58c00
+    digest: 1f13375962ccba92f2176fedaa3780828884bbdfee6c32a6c623a2f450d2abe1
     home: https://github.com/devopstales/k8s-logrotate
     keywords:
     - logrotate
@@ -30,9 +30,9 @@ entries:
   kube-bench-metrics:
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2023-01-28T09:04:04.202732522Z"
+    created: "2023-03-14T10:46:55.6031533Z"
     description: A Helm chart for Kubernetes
-    digest: 75992c29fc547a0998f22941e654bcdd24e46805ddaa8740ae37ecb7e2892cfd
+    digest: 308a5f946cc30ba75e73577b13718b275a55b21a4d0b2c1234566a9ede9c52ab
     name: kube-bench-metrics
     urls:
     - https://devopstales.github.io/helm-charts/kube-bench-metrics-0.1.0.tgz
@@ -40,20 +40,41 @@ entries:
   kube-openid-connect:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2023-01-28T09:04:04.20332052Z"
+    created: "2023-03-14T10:46:55.603650506Z"
     description: A Helm chart for Kubernetes
-    digest: 7eba84fc22224fd0dcd5de0ed312a8465cfdc1cab298affd0d5c0dbd2a12f907
+    digest: d825ce1f065bc0e3226bb5431cf0e24cd7bafde12ccf05dff4f837cc870a5b45
     name: kube-openid-connect
     type: application
     urls:
     - https://devopstales.github.io/helm-charts/kube-openid-connect-1.1.0.tgz
     version: 1.1.0
+  kubedash:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2023-03-14T10:46:55.604225312Z"
+    description: KubeDash is a general purpose, web-based UI for Kubernetes clusters.
+    digest: 4e9e616e08c2f1cc77510b063097436a73cb8c492dc06cd8a0f3a836409b8102
+    home: https://github.com/devopstales/kubedash
+    icon: https://raw.githubusercontent.com/devopstales/helm-charts/main/icons/kubectl-login.png
+    keywords:
+    - kubedash
+    - kubernetes dashboard
+    - trivy-operator
+    kubeVersion: '>=1.19.x-0'
+    name: kubedash
+    sources:
+    - https://github.com/devopstales/kubedash
+    - https://github.com/devopstales/helm-charts
+    type: application
+    urls:
+    - https://devopstales.github.io/helm-charts/kubedash-1.0.0.tgz
+    version: 1.0.0
   kuberos:
   - apiVersion: v2
     appVersion: "2018-07-03"
-    created: "2023-01-28T09:04:04.203885519Z"
+    created: "2023-03-14T10:46:55.604708217Z"
     description: An OIDC authentication helper for Kubernetes
-    digest: 65ef152f1e3b2f2ac17603f3f47d7814e0611c49e9afcb06f62d6cebbded612a
+    digest: 76f6f1a4f86ac869e3a8109bb342941fc3bbfb92a07e6fb7ac4ae1015591136b
     home: https://github.com/negz/kuberos
     name: kuberos
     sources:
@@ -89,9 +110,9 @@ entries:
       artifacthub.io/prerelease: "false"
     apiVersion: v2
     appVersion: v1.7.1
-    created: "2023-01-28T09:04:04.208104807Z"
+    created: "2023-03-14T10:46:55.607283945Z"
     description: Kubernetes Native Policy Management
-    digest: a7c6183e8d519c731555ee38e70ffdcfc1f19b35c926dd226ce0a19f8af4b5d8
+    digest: 6192501e276dc4b884773c64c2bc0298b090cf479dd4adec0585083d4c0a54c0
     home: https://kyverno.io/
     icon: https://github.com/kyverno/kyverno/raw/main/img/logo.png
     keywords:
@@ -114,9 +135,9 @@ entries:
   permission-manager:
   - apiVersion: v2
     appVersion: 1.7.1-rc1
-    created: "2023-01-28T09:04:04.208781705Z"
+    created: "2023-03-14T10:46:55.60781535Z"
     description: Web UI for ServiceAccount RBAC manager
-    digest: 1d6fcf4aa5162572ec577e1f35c2029f14b36535b16f4a1cef1e0ad65a758ddf
+    digest: 9cd3aba485d409bbde4edd03a8dfa21599b7ec12a9ee3fcb4a5a885c5edda9e2
     name: permission-manager
     type: application
     urls:
@@ -145,10 +166,10 @@ entries:
   pushprox:
   - apiVersion: v2
     appVersion: 0.1.0
-    created: "2023-01-28T09:04:04.209911302Z"
+    created: "2023-03-14T10:46:55.608914762Z"
     description: Sets up a deployment of the PushProx proxy and a DaemonSet of PushProx
       clients.
-    digest: fca7a632101c09e946a40adbcac5625186af1111ab47c787a4e7435f180a7bbe
+    digest: ec3ea6d708bb55c84ae96199ad369108268b5e359776ef74e460e41164396995
     name: pushprox
     type: application
     urls:
@@ -168,10 +189,10 @@ entries:
   trivy-image-validator:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-01-28T09:04:04.210313501Z"
+    created: "2023-03-14T10:46:55.609317567Z"
     deprecated: true
     description: A Helm chart for trivy-image-validator Admission Controller
-    digest: c15433a8eb61509fa8bbbd56cf51eb4d71672614c69c46f0e90790bfee3ae73f
+    digest: 722c68fbd90576930ff36b11f6834d7b072a1fdf4a39f3f16c4b60ee79ddcd83
     name: trivy-image-validator
     type: application
     urls:
@@ -210,11 +231,11 @@ entries:
   trivy-operator:
   - apiVersion: v2
     appVersion: 0.23.0
-    created: "2023-01-28T09:04:04.212412795Z"
+    created: "2023-03-14T10:46:55.610926784Z"
     description: This chart deploys an operator that default every 5 minutes execute
       a scan script. It will get image list from all namespaces with the label `trivy-scan=true`,
       and then scan this images with trivy, finally we will get metrics on `http://[pod-ip]:9115/metrics`
-    digest: 9daa9f81aa7b783072b7a0e7bea26db23c7fe89815782fc49775333efe6dcf7f
+    digest: 4388a74ec75dc3066ee7eb511e0ae43be1f19e98f8935987b33442286ef36a98
     home: https://github.com/devopstales/trivy-operator
     icon: https://github.com/devopstales/helm-charts/raw/main/icons/trivy.png
     keywords:
@@ -443,10 +464,10 @@ entries:
   trivy-scanner:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-01-28T09:04:04.213604292Z"
+    created: "2023-03-14T10:46:55.611398989Z"
     deprecated: true
     description: A Helm chart for trivy-scanner
-    digest: 4ba9d58398fa81d33f8309c4be31ebe1667092e685710392901fc2f3d4e463d8
+    digest: 3431bf19e14503b10f597d317b366530f6190d23c2f7d92b42714091ab7a678e
     name: trivy-scanner
     type: application
     urls:
@@ -482,4 +503,4 @@ entries:
     urls:
     - https://github.com/devopstales/helm-charts/releases/download/trivy-scanner-0.1.0/trivy-scanner-0.1.0.tgz
     version: 0.1.0
-generated: "2023-01-28T09:04:04.201041327Z"
+generated: "2023-03-14T10:46:55.601829086Z"
