@@ -4,15 +4,15 @@
 
 This repository contains [Helm](https://helm.sh) charts for various projects
 
-* [Trivy Image Validator Admission Controller](charts/trivy-image-validator/) - :warning: Deprecated
-* [Trivy Scanner Operator](charts/trivy-scanner/) - :warning: Deprecated
+* [Trivy Operator](charts/trivy-operator/)
+* [KubeDash](charts/kubedash/) - Kubernetes Dashboard
 * [PushProx](charts/PushProx)
 * [Permission Manager](charts/permission-manager/)
 * [kuberos](charts/kuberos/)
-* [kube-bench-metrics](charts/kube-bench-metrics/)
-* [Trivy Operator](charts/trivy-operator/)
-* [kube-openid-connect](charts/kube-openid-connect/)
 * [k8s-logrotate](charts/k8s-logrotate)
+* [kube-openid-connect](charts/kube-openid-connect/) - :warning: Deprecated
+* [Trivy Image Validator Admission Controller](charts/trivy-image-validator/) - :warning: Deprecated
+* [Trivy Scanner Operator](charts/trivy-scanner/) - :warning: Deprecated
 
 ## Usage
 
