@@ -31,7 +31,7 @@ externalDatabase:
   host: ""
   port: 5432
   database: "kubedash"
-  user: "kubedash-user"
+  username: "kubedash-user"
   password: "kubedash-pass"
   secret:
     # -- Name of the secret storing EXTERNAL_DATABASE_PASSWORD.
@@ -40,7 +40,7 @@ externalDatabase:
     useExistingSecret: false
 
 # -- deploy HA postgresql
-postgresql-ha:
+postgresqlHa:
   enabled: false
   rbac:
     create: true
@@ -63,8 +63,8 @@ postgresql-ha:
 # https://artifacthub.io/packages/helm/bitnami/postgresql-ha
 
 # -- enable metrics-server
-metrics-server:
-  enabled: true
+metricsServer:
+  enabled: false
   args:
     - --kubelet-preferred-address-types=InternalIP
     - --kubelet-insecure-tls
