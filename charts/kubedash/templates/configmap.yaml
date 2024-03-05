@@ -23,7 +23,9 @@ data:
   OIDC_ISSUER_URL: {{ .Values.oidc.provider.oidcUrl | quote}}
   OIDC_SCOPE: {{ .Values.oidc.provider.oidcScopes | quote}}
   {{ if .Values.ingress.tls.enabled }}
-  OIDC_CALLBACK_URL: {{ .Values.ingress.url | quote}}
+  OIDC_CALLBACK_URL: "https://{{ .Values.ingress.url}}"
+  {{ else }}
+  OIDC_CALLBACK_URL: "http://{{ .Values.ingress.url}}"
   {{ end }}
 {{ if not .Values.oidc.secret.useExistingSecret }}
 ---
