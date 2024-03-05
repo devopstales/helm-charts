@@ -14,9 +14,9 @@ entries:
     version: 0.1.4
   k8s-logrotate:
   - apiVersion: v1
-    created: "2024-03-05T13:25:56.434585906Z"
+    created: "2024-03-05T13:47:22.013831997Z"
     description: logrotate chart that runs on kubernetes
-    digest: 63f20a89a9db40d955f52b77611b1b65203e2807a080002ca192783a26e3be2c
+    digest: 1f6deac412100d9a066724565916787c03a8f05fbe1ae6ae8335ea6f1a7bdfbe
     home: https://github.com/devopstales/k8s-logrotate
     keywords:
     - logrotate
@@ -30,9 +30,9 @@ entries:
   kube-bench-metrics:
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2024-03-05T13:25:56.434912604Z"
+    created: "2024-03-05T13:47:22.014175069Z"
     description: A Helm chart for Kubernetes
-    digest: 86062920910b19a3f9e5884147fb1cd0b28526726aa27d60319b53bbe828e6c3
+    digest: f2eead34715ba3e5bddc5a66096ed1f87b656d1926431f6fd1dc72b956e9b190
     name: kube-bench-metrics
     urls:
     - https://devopstales.github.io/helm-charts/kube-bench-metrics-0.1.0.tgz
@@ -40,9 +40,9 @@ entries:
   kube-openid-connect:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-03-05T13:25:56.435369634Z"
+    created: "2024-03-05T13:47:22.014585577Z"
     description: A Helm chart for Kubernetes
-    digest: c3b59dae7f53d2c35c99af48911ece56025bd1f27323aa6fb28153c2bc8e2a75
+    digest: 261013662bc32bf4a98cb0ddddec6df793310f9d6d2f686fca351cb02dab599c
     name: kube-openid-connect
     type: application
     urls:
@@ -51,7 +51,7 @@ entries:
   kubedash:
   - apiVersion: v2
     appVersion: 2.0.0
-    created: "2024-03-05T13:25:56.44283141Z"
+    created: "2024-03-05T13:47:22.021666197Z"
     dependencies:
     - condition: postgresqlHa.enabled
       name: postgresql-ha
@@ -62,7 +62,7 @@ entries:
       repository: https://kubernetes-sigs.github.io/metrics-server/
       version: 3.8.4
     description: KubeDash is a general purpose, web-based UI for Kubernetes clusters.
-    digest: 24b327c5242a20ccda61ebced4d9a470652b5455ec663df0bb075c42a5ab0e69
+    digest: ff5fd503f758edfc7124dd6f443c6c2390175802ad23ba776ee4f195ee2b75c3
     home: https://github.com/devopstales/kubedash
     icon: https://raw.githubusercontent.com/devopstales/helm-charts/main/icons/kubectl-login.png
     keywords:
@@ -121,9 +121,9 @@ entries:
   kuberos:
   - apiVersion: v2
     appVersion: "2018-07-03"
-    created: "2024-03-05T13:25:56.443217658Z"
+    created: "2024-03-05T13:47:22.022056418Z"
     description: An OIDC authentication helper for Kubernetes
-    digest: cf6674327ff49b9957da80752694aa534d39ffb3fd556b12bc1b687156066b56
+    digest: ab54808dabf22c22f5af1072cab2311329084650e0396fc209d75016a6b07123
     home: https://github.com/negz/kuberos
     name: kuberos
     sources:
@@ -159,9 +159,9 @@ entries:
       artifacthub.io/prerelease: "false"
     apiVersion: v2
     appVersion: v1.7.1
-    created: "2024-03-05T13:25:56.445411288Z"
+    created: "2024-03-05T13:47:22.024001639Z"
     description: Kubernetes Native Policy Management
-    digest: 0ff07ddc0675fa68cd606dad6100608662fb7d4e276b41902ee3ff72f42dca1c
+    digest: e8c97036ba28ca276a329d152e6f5d41fe32265c1e9aa3f06d1b935233474b03
     home: https://kyverno.io/
     icon: https://github.com/kyverno/kyverno/raw/main/img/logo.png
     keywords:
@@ -184,9 +184,9 @@ entries:
   permission-manager:
   - apiVersion: v2
     appVersion: 1.7.1-rc1
-    created: "2024-03-05T13:25:56.445820338Z"
+    created: "2024-03-05T13:47:22.024588537Z"
     description: Web UI for ServiceAccount RBAC manager
-    digest: d04bbf8de0cb46f8a31d2c1ac396442b8a042a88f996b4fabb23d0f03067dc7c
+    digest: 213e3525bb900573251624ed72c7cbd84b9513a78ce6d9b4d9587f7ce385a192
     name: permission-manager
     type: application
     urls:
@@ -215,10 +215,10 @@ entries:
   pushprox:
   - apiVersion: v2
     appVersion: 0.1.0
-    created: "2024-03-05T13:25:56.446282298Z"
+    created: "2024-03-05T13:47:22.026039225Z"
     description: Sets up a deployment of the PushProx proxy and a DaemonSet of PushProx
       clients.
-    digest: ff11b6df6eb37c3d080314e0658a9c5d35d61f034c6f27ab381229ed196f8fe4
+    digest: 2525a14c0540b06402d224e928425b81c9849c15180a0d2541a820d857826064
     name: pushprox
     type: application
     urls:
@@ -238,10 +238,10 @@ entries:
   trivy-image-validator:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-03-05T13:25:56.446615537Z"
+    created: "2024-03-05T13:47:22.026388989Z"
     deprecated: true
     description: A Helm chart for trivy-image-validator Admission Controller
-    digest: 8837df3a130a61f4baabba62fcf0035ab31d315cb5422d4e84a6f26351a954dc
+    digest: 49264388e8f36776984fcc8ceb64b78042e9315aa960f01ea96304e6477877df
     name: trivy-image-validator
     type: application
     urls:
@@ -250,11 +250,11 @@ entries:
   trivy-operator:
   - apiVersion: v2
     appVersion: 0.23.0
-    created: "2024-03-05T13:25:56.447531962Z"
+    created: "2024-03-05T13:47:22.027333718Z"
     description: This chart deploys an operator that default every 5 minutes execute
       a scan script. It will get image list from all namespaces with the label `trivy-scan=true`,
       and then scan this images with trivy, finally we will get metrics on `http://[pod-ip]:9115/metrics`
-    digest: bee962d2c401e66aa12cd3505fcb0925bc4f8de40cde0864ab68de78ff1d6d73
+    digest: 43e0579ecf382dc58e264b6cb65bf9db6efe84ee3fb1403a097d1392ed923a94
     home: https://github.com/devopstales/trivy-operator
     icon: https://github.com/devopstales/helm-charts/raw/main/icons/trivy.png
     keywords:
@@ -483,13 +483,13 @@ entries:
   trivy-scanner:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-03-05T13:25:56.447828664Z"
+    created: "2024-03-05T13:47:22.027637236Z"
     deprecated: true
     description: A Helm chart for trivy-scanner
-    digest: 21acdd1406edf5ba9799760175a93a4ad2e7224788550aca3d45d230a7b231e8
+    digest: 923b8e7cbc8cd4864e78369a7f617a430260ddb885c897dfe52c94d277c4aa42
     name: trivy-scanner
     type: application
     urls:
     - https://devopstales.github.io/helm-charts/trivy-scanner-1.0.2.tgz
     version: 1.0.2
-generated: "2024-03-05T13:25:56.434114199Z"
+generated: "2024-03-05T13:47:22.013429484Z"
