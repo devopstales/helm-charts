@@ -49,5 +49,5 @@ spec:
              path: /var/lib/docker/containers
            name: containers
          - configMap:
-            name: {{ template "logrotate.name" . }}
+            name: {{ include "logrotate.name" . }}-clusterrole
            name: {{ template "logrotate.name" . }}-config

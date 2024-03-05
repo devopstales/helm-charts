@@ -38,6 +38,7 @@ metadata:
   name: {{ template "pushProxy.client.name" . }}
   namespace: {{ include "pushprox.namespace" . }}
   labels: {{ include "pushProxy.client.labels" . | nindent 4 }}
+{{- if (semverCompare "<1.25-0" .Capabilities.KubeVersion.GitVersion) }}
 ---
 apiVersion: policy/v1beta1
 kind: PodSecurityPolicy
@@ -73,5 +74,6 @@ spec:
   allowedHostPaths:
   - pathPrefix: {{ required "Need access to volume on host with the SSL cert files to use HTTPs" .Values.clients.https.certDir }}
     readOnly: true
+{{- end }}
 {{- end }}
 {{- end }}{{- end }}

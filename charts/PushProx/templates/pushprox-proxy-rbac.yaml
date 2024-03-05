@@ -31,6 +31,7 @@ metadata:
   name: {{ template "pushProxy.proxy.name" . }}
   namespace: {{ include "pushprox.namespace" . }}
   labels: {{ include "pushProxy.proxy.labels" . | nindent 4 }}
+{{- if (semverCompare "<1.25-0" .Capabilities.KubeVersion.GitVersion) }}
 ---
 apiVersion: policy/v1beta1
 kind: PodSecurityPolicy
@@ -60,4 +61,5 @@ spec:
   readOnlyRootFilesystem: false
   volumes:
     - 'secret'
+{{- end }}
 {{- end }}{{- end }}
