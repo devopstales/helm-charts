@@ -12,5 +12,3 @@ jobs:
         uses: stefanprodan/helm-gh-pages@master
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          linting: off
-          dependencies: postgresql-ha,https://charts.bitnami.com/bitnami;metrics-server,https://kubernetes-sigs.github.io/metrics-server/
