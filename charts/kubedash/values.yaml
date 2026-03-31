@@ -5,6 +5,9 @@ logLevel: "INFO"
 # -- flask environment: production or development
 flaskConfig: "production"
 
+# -- Enable ClusterRole creation. Disable if the role already exists.
+createClusterRole: true
+
 serviceAccount:
   # -- Enable automatic serviceAccount creation
   create: true
@@ -18,6 +21,16 @@ image:
   pullPolicy: Always
   # -- The docker image tag to use
   tag: 3.1.0
+  statsdExporter:
+    # -- The docker image repository to use
+    repository: prom/statsd-exporter
+    # -- The docker image tag to use
+    tag: v0.22.4
+
+# -- Service configuration
+service:
+  # -- Service port for the KubeDash application
+  port: 8000
 
 # -- pullsecrets
 imagePullSecrets: []
@@ -27,40 +40,193 @@ replicas: 1
 
 # -- enable external postgresql support
 externalDatabase:
+  # -- Enable external postgresql
   enabled: false
+  # -- External postgresql host
   host: ""
+  # -- External postgresql port
   port: 5432
+  # -- External postgresql database
   database: "kubedash"
-  username: "kubedash-user"
-  password: "kubedash-pass"
+  # -- External postgresql username
+  username: "kubedash"
+  # -- External postgresql password
+  password: "kubedash"
   secret:
     # -- Name of the secret storing EXTERNAL_DATABASE_PASSWORD.
     name: "kubedash-postgresql"
     # -- Secret must provide the following variables: EXTERNAL_DATABASE_PASSWORD.
     useExistingSecret: false
 
-# -- deploy HA postgresql
-postgresqlHa:
-  enabled: false
-  rbac:
-    create: true
-  persistence:
-    enabled: true
-#    storageClass: default
-  postgresql:
+metrics:
+  # -- Enable metrics
+  enabled: true
+  serviceMonitor:
+    # -- Enable prometheus service monitor
+    enabled: false
+    # -- Prometheus service monitor namespace
+    #namespace: "monitoring"
+    # -- Prometheus service monitor labels
+    labels:
+      release: kube-prometheus-stack
+    # -- Prometheus service monitor job labels
+    jobLabel: ""
+    # -- Prometheus service monitor annotations
+    annotations: {}
+    # -- Prometheus service monitor interval
+    interval: "30s"
+    # -- Prometheus service monitor scrape timeout
+    scrapeTimeout: "10s"
+    relabelings: []
+    metricRelabelings: []
+    honorLabels: false
+  grafana:
+    # -- Enable grafana dashboard deploy
+    enabled: true 
+    # -- Grafana dashboard namespace
+    namespace: "monitoring-system"
+    annotations:
+      grafana_folder: "KubeDash"
+    labels:
+      grafana_dashboard: "1"
+
+# -- deploy ui for db
+dbui:
+  image:
+    # -- adminer image
+    repository: sosedoff/pgweb
+    # -- adminer image tag
+    tag: latest
+    # -- adminer image pull policy
+    pullPolicy: IfNotPresent
+    # -- adminer plugins
+    plugins: "tables-filter,adminer-auto-login"
+
+# -- deploy postgresql (CloudPirates chart)
+postgresql:
+  # -- Enable postgresql
+  enabled: true
+  
+  auth:
+    # -- Postgresql database
     database: "kubedash"
-    username: "kubedash-user"
-    password: "kubedash-pass"
-    repmgrPassword: "change-me"
-    postgresPassword: "change-me"
-  pgpool:
-    replicaCount: 2
-    adminPassword: "change-me"
+    # -- Postgresql username
+    username: "kubedash"
+    # -- Postgresql password
+    password: "kubedash"
+    # -- Name of existing secret to use for PostgreSQL credentials
+    existingSecret: ""
+
+  persistence:
+    # -- Enable persistence using Persistent Volume Claims
+    enabled: true
+    # -- Persistent Volume storage class
+    storageClass: ""
+    # -- Persistent Volume size
+    size: 10Gi
+    # -- Persistent Volume access mode
+    accessModes:
+      - ReadWriteOnce
+
+  ingress:
+    # -- Enable ingress for PostgreSQL
+    enabled: false
+    # -- Ingress TLS configuration (array format as expected by schema)
+    tls:
+      - secretName: ""
+        hosts:
+          - ""
+
   metrics:
+    # -- Enable postgresql metrics
     enabled: true
     serviceMonitor:
-      enabled: false
-# https://artifacthub.io/packages/helm/bitnami/postgresql-ha
+      # -- Enable prometheus service monitor
+      enabled: true
+      # -- Prometheus service monitor namespace
+      namespace: ""
+      # -- Prometheus service monitor interval
+      interval: 30s
+      # -- Prometheus service monitor scrape timeout
+      scrapeTimeout: 10s
+      # -- Prometheus service monitor selector labels
+      selector: {}
+      # -- Prometheus service monitor annotations
+      annotations: {}
+      # -- Honor metrics labels (boolean)
+      honorLabels: false
+      # -- Prometheus service monitor relabelings
+      relabelings: []
+      # -- Prometheus service monitor metric relabelings
+      metricRelabelings: []
+      # -- Prometheus service monitor namespace selector
+      namespaceSelector: {}
+# https://artifacthub.io/packages/helm/cloudpirates-postgres/postgres
+
+# -- redis ui
+redisui:
+  image:
+      repository: patrikx3/p3x-redis-ui
+      tag: latest
+      pullPolicy: Always
+  resources: {}
+    # requests:
+    #   cpu: 100m
+    #   memory: 100M
+    # limits:
+    #   cpu: 200m
+  #   memory: 200M
+
+# -- enable redis for caching (CloudPirates chart)
+redis:
+  # -- Enable redis
+  enabled: true
+  # -- Redis cluster architecture (standalone, replication, cluster)
+  architecture: standalone
+  # -- Number of Redis instances to deploy (only when architecture=(replication|cluster))
+  replicaCount: 1
+  auth:
+    # -- Enable Redis authentication
+    enabled: false
+    # -- Redis password (if empty, random password will be generated)
+    password: ""
+    # -- Name of existing secret containing Redis password
+    existingSecret: ""
+  persistence:
+    # -- Enable persistence using Persistent Volume Claims
+    enabled: true
+    # -- Persistent Volume storage class
+    storageClass: ""
+    # -- Persistent Volume size
+    size: 8Gi
+    # -- Persistent Volume access mode
+    accessModes:
+      - ReadWriteOnce
+  metrics:
+    # -- Enable redis metrics
+    enabled: true
+    serviceMonitor:
+      # -- Enable prometheus service monitor
+      enabled: true
+      # -- Prometheus service monitor namespace
+      namespace: ""
+      # -- Prometheus service monitor interval
+      interval: 30s
+      # -- Prometheus service monitor scrape timeout
+      scrapeTimeout: ""
+      # -- Prometheus service monitor relabelings
+      relabelings: []
+      # -- Prometheus service monitor metric relabelings
+      metricRelabelings: []
+      # -- Honor metrics labels (boolean)
+      honorLabels: false
+      # -- Prometheus instance selector labels
+      selector: {}
+      # -- Prometheus service monitor annotations
+      annotations: {}
+      # -- Prometheus service monitor namespace selector
+      namespaceSelector: {}
+# https://artifacthub.io/packages/helm/cloudpirates-redis/redis
 
 # -- enable metrics-server
 metricsServer:
@@ -109,16 +275,19 @@ oidc:
 plugins:
   registryUi:
     # -- Enable registry UI plugin
-    enabled: false
+    enabled: true
   helmDashboard:
     # -- Enable helm dashboard plugin
     enabled: true
   certManager:
     # -- Enable helm dashboard plugin
-    enabled: false
+    enabled: true
   externalLoadbalancer:
     # -- Enable external loadbalancer plugin
-    enabled: false
+    enabled: true
+  flux:
+    # -- Enable flux plugin
+    enabled: true
 
 # -- enable persistence
 persistence:
@@ -137,7 +306,7 @@ persistence:
   ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
   ##   GKE, AWS & OpenStack)
   ##
-  # storageClass: "-"
+  storageClass: "-"
 
 ingress:
   # -- Enable Ingress object creation

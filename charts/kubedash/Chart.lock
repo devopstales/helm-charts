@@ -1,9 +1,12 @@
 dependencies:
-- name: postgresql-ha
-  repository: https://charts.bitnami.com/bitnami
-  version: 13.4.5
+- name: redis
+  repository: oci://docker.io/cloudpirates
+  version: 0.26.8
+- name: postgres
+  repository: oci://docker.io/cloudpirates
+  version: 0.18.3
 - name: metrics-server
   repository: https://kubernetes-sigs.github.io/metrics-server/
   version: 3.8.4
-digest: sha256:8b742b0b83b5f6ec8469884285f97fcc2d253b421211d144cf1f617cff963203
-generated: "2024-03-05T11:12:34.381423+01:00"
+digest: sha256:d9ffedaa043774c33563fd3d4bf6c8327f48170e40962e4cffa865ff24097a3d
+generated: "2026-03-31T12:27:53.99992+02:00"
