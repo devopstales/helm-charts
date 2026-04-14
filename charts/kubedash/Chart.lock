@@ -4,9 +4,12 @@ dependencies:
   version: 0.26.8
 - name: postgres
   repository: oci://docker.io/cloudpirates
-  version: 0.18.3
+  version: 0.19.0
 - name: metrics-server
   repository: https://kubernetes-sigs.github.io/metrics-server/
   version: 3.8.4
-digest: sha256:d9ffedaa043774c33563fd3d4bf6c8327f48170e40962e4cffa865ff24097a3d
-generated: "2026-03-31T12:27:53.99992+02:00"
+- name: jaeger
+  repository: https://jaegertracing.github.io/helm-charts
+  version: 3.3.4
+digest: sha256:7bee169b3c9795521db04b439e080658f3519efd9fc9152e9a19251bda2c4316
+generated: "2026-04-14T11:28:23.700096+02:00"

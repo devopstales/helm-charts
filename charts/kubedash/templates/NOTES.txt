@@ -9,5 +9,11 @@ Login to the application URL with admin / admin:
    http://{{ $.Values.route.url }}
 {{- end }}
 
+{{- if .Values.jaeger.enabled }}
+To access the Jaeger UI:
+   kubectl port-forward svc/{{ .Values.jaeger.fullnameOverride }}-query 16686:16686
+   http://localhost:16686
+{{- end }}
+
 To learn more about the release, try:
    Check the documentation: https://devopstales.github.io/KubeDash/latest/

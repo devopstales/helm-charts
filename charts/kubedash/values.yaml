@@ -271,6 +271,46 @@ oidc:
     # -- Secret must provide the following variables: OIDC_CLIENT_ID and OIDC_SECRET.
     useExistingSecret: false
 
+# -- Jaeger tracing configuration
+jaeger:
+  # -- Jaeger name
+  fullnameOverride: kubedash-jaeger
+  # -- Enable Jaeger tracing
+  enabled: false
+  # -- External jaeger 
+  external: false
+  # -- Jaeger HTTP endpoint URL for externel
+  httpEndpoint: "http://127.0.0.1:4318"
+  # -- Jaeger all-in-one deployment configuration
+  allInOne:
+    # -- Enable all-in-one deployment
+    enabled: true
+  # -- Disable provisioned data stores (Cassandra, Elasticsearch, Kafka)
+  provisionDataStore:
+    cassandra: false
+    elasticsearch: false
+    kafka: false
+  # -- Disable standalone components (all-in-one includes everything)
+  collector:
+    enabled: false
+  agent:
+    enabled: false
+  query:
+    enabled: false
+  storage:
+    # -- Storage type (cassandra, elasticsearch, grpc-plugin, badger, memory)
+    type: badger
+    badger:
+      # -- Use ephemeral storage (true = no persistence, false = requires useExistingPvcName)
+      ephemeral: true
+      persistence:
+        # -- Mount path for badger data
+        mountPath: /mnt/data
+        # -- Use existing PVC name (required if ephemeral: false)
+        useExistingPvcName: ""
+        # -- Extra environment variables
+        extraEnv: []
+
 # -- enable plugins
 plugins:
   registryUi:

@@ -82,8 +82,12 @@ data:
     #################################### Monitoring Settings ###########################
     [monitoring]
 
-    jaeger_enabled = false
-    jaeger_http_endpoint = http://127.0.0.1:4318
+    jaeger_enabled = {{ .Values.jaeger.enabled }}
+    {{- if .Values.jaeger.external }}
+    jaeger_http_endpoint = {{ .Values.jaeger.httpEndpoint }}
+    {{- else }}
+    jaeger_http_endpoint = http://{{ .Values.jaeger.fullnameOverride }}-collector:4318
+    {{- end }}
 
     #################################### Plugin Settings ###########################
     [plugin_settings]
